@@ -37,20 +37,34 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 25.0),
-              child: Container(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Stack(
+              alignment: Alignment.bottomLeft,
+              children: [
+                Container(
+                width: 300,
+                height: 300,
+                color: Colors.red,
+              ),
+              Container(
+                width: 200,
+                height: 150,
+                color: Colors.blue,
+              ),
+              Container(
+                margin: const EdgeInsets.all(16),
                 width: 100,
                 height: 100,
-                color: Colors.blueAccent,
+                color: const Color.fromARGB(255, 37, 254, 25),
               ),
+              ],
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
