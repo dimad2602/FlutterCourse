@@ -1,4 +1,8 @@
+import 'package:curse_app_1/widgets/point_card_widget.dart';
+import 'package:curse_app_1/widgets/square_card_widget.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/wide_card_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,27 +41,38 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 5.0,
-            mainAxisExtent: 25,
-          ),
-          itemBuilder: (context, index) {
-            int row = 1 + index ~/ 3;
-            int col = index % 3;
-            int number = row + col;
-            return Center(
-              child: Text(
-                number.toString(),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
+        body: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: Center(
+                child: WideCardWidget(),
+              ),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return const PointCardWidget();
+                },
+                childCount: 20,
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              sliver: SliverGrid(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 10.0,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return const SquareCardWidget();
+                  },
+                  childCount: 20,
                 ),
               ),
-            );
-          },
-          itemCount: 3 * 6,
+            ),
+          ],
         ));
   }
 }
