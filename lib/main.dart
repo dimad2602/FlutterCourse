@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 (BuildContext context, int index) {
                   return const PointCardWidget();
                 },
-                childCount: 20,
+                childCount: 30,
               ),
             ),
             SliverPadding(
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   (BuildContext context, int index) {
                     return const SquareCardWidget();
                   },
-                  childCount: 20,
+                  childCount: 30,
                 ),
               ),
             ),
