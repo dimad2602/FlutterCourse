@@ -1,8 +1,7 @@
-import 'package:curse_app_1/widgets/point_card_widget.dart';
-import 'package:curse_app_1/widgets/square_card_widget.dart';
+import 'package:curse_app_1/components/big_text.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/wide_card_widget.dart';
+import 'components/my_text_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +33,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  get onPressed => null;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,38 +44,50 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: CustomScrollView(
-          slivers: [
-            const SliverToBoxAdapter(
-              child: Center(
-                child: WideCardWidget(),
-              ),
-            ),
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return const PointCardWidget();
-                },
-                childCount: 30,
-              ),
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 10.0,
+        body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(height: 30),
+                MyTextField(
+                  controller: emailController,
+                  labelText: 'E-mail',
+                  helperText: 'Введите свой e-mail',
                 ),
-                delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
-                    return const SquareCardWidget();
-                  },
-                  childCount: 30,
+                const SizedBox(height: 15),
+                MyTextField(
+                  controller: passwordController,
+                  labelText: 'Пароль',
+                  hiddenText: true,
+                  obscuringCharacter: '*',
                 ),
-              ),
+                const SizedBox(
+                  height: 20,
+                ),
+                FilledButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff6750a4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 90, vertical: 12),
+                    ),
+                    child: const BigText(
+                      text: "Войти",
+                      color: Colors.white,
+                    )),
+                const SizedBox(
+                  height: 25,
+                ),
+                const Center(
+                  child: BigText(
+                    text: 'Зарегистрироваться',
+                    color: Color(0xff6750a4),
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
             ),
-          ],
+          ),
         ));
   }
 }
