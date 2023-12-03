@@ -12,9 +12,9 @@ class MyTextField extends StatefulWidget {
     Key? key,
     required this.labelText,
     this.icon,
-    this.controller,
+    required this.controller,
     this.hiddenText = false,
-    this.helperText,
+    this.helperText = "",
     this.obscuringCharacter = "*",
     this.trailingIcon = const Icon(Icons.cancel_outlined),
   }) : super(key: key);
