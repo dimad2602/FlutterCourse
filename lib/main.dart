@@ -3,6 +3,8 @@ import 'package:curse_app_1/components/my_text_field_cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
+import 'components/my_text_field.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,6 +14,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color overlayColor = Colors.white;
+    final systemBarColors = SystemUiOverlayStyle(
+      systemNavigationBarColor: overlayColor,
+      statusBarColor: overlayColor,
+    );
+    SystemChrome.setSystemUIOverlayStyle(systemBarColors);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(

@@ -24,7 +24,7 @@ class MyTextFieldCupertino extends StatefulWidget {
     this.trailingIcon = const Icon(
       CupertinoIcons.clear_circled_solid,
       color: CupertinoColors.systemGrey,
-    ), 
+    ),
   }) : super(key: key);
 
   @override
@@ -45,36 +45,43 @@ class _MyTextFieldState extends State<MyTextFieldCupertino> {
             ),
           ],
         ),
-        CupertinoTextField(
-          controller: widget.controller,
-          obscureText: widget.hiddenText,
-          inputFormatters: widget.inputFormatters, // == null ? [FilteringTextInputFormatter.digitsOnly]:[],
-          obscuringCharacter: widget.obscuringCharacter,
-          onChanged: (value) {
-            setState(() {});
-          },
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: CupertinoColors.white,
+        Stack(
+          children: [
+            CupertinoTextField(
+              controller: widget.controller,
+              obscureText: widget.hiddenText,
+              inputFormatters: widget
+                  .inputFormatters, // == null ? [FilteringTextInputFormatter.digitsOnly]:[],
+              obscuringCharacter: widget.obscuringCharacter,
+              onChanged: (value) {
+                setState(() {});
+              },
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: CupertinoColors.white,
+                ),
+              ),
+              keyboardType: widget.keyboardType ?? TextInputType.text,
+              placeholder: widget.placeholder,
+              placeholderStyle: const TextStyle(
+                color: CupertinoColors.black,
+              ),
             ),
-          ),
-          //padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-          keyboardType: widget.keyboardType ?? TextInputType.text,
-          placeholder: widget.placeholder,
-          placeholderStyle: const TextStyle(
-            color: CupertinoColors.black,
-          ),
-          suffix: widget.controller!.text.isNotEmpty
-              ? CupertinoButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {
-                    setState(() {
-                      widget.controller!.clear();
-                    });
-                  },
-                  child: widget.trailingIcon,
-                )
-              : null,
+            Positioned(
+              right: 0,
+              child: widget.controller!.text.isNotEmpty
+                  ? CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        setState(() {
+                          widget.controller!.clear();
+                        });
+                      },
+                      child: widget.trailingIcon,
+                    )
+                  : const SizedBox(),
+            ),
+          ],
         ),
         const Divider(),
       ],
