@@ -12,17 +12,34 @@ class FirstPage extends StatelessWidget {
         title: const Text('Джегло'),
       ),
       body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xff6750a4),
-          ),
-          onPressed: () {
-            Navigator.of(context).pushNamed('/CalculatorPage');
-          },
-          child: const BigText(
-            text: "Калькулятор",
-            color: Colors.white,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/CalculatorPage');
+              },
+              child: const BigText(
+                text: "Калькулятор",
+                color: Colors.white,
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/LoginPage');
+              },
+              child: const BigText(
+                text: "LoginPage",
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
       ),
     );

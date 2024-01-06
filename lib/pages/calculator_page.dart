@@ -157,8 +157,12 @@ class _CalculatorPageState extends State<CalculatorPage> {
                     BigText(
                       text: "$_totalAmountRounded руб",
                       fontWeight: FontWeight.w600,
-                    )
+                    ),
+                    MyTextFieldCupertino(keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  controller: _billAmountController,)
                   ],
+
                 ),
                 Center(
                   child: ElevatedButton(
