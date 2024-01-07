@@ -39,6 +39,18 @@ class FirstPage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/ListSearchPage');
+              },
+              child: const BigText(
+                text: "ListSearchPage",
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ),

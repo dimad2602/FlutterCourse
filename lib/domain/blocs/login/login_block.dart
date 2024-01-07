@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../events/login_event.dart';
+import 'login_event.dart';
 import '../../repositories/login_repository.dart';
-import '../../states/login_state.dart';
+import 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginRepository _repository;
@@ -18,6 +18,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginRetry>((event, emit) async {
       emit(InitialState());
     });
+    
     on<Validate>((event, emit) async {
       emit(ValidatingState());
 

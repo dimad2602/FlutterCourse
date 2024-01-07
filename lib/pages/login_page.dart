@@ -1,6 +1,6 @@
-import 'package:curse_app_1/domain/blocs/login_bloc/login_block.dart';
-import 'package:curse_app_1/domain/events/login_event.dart';
-import 'package:curse_app_1/domain/states/login_state.dart';
+import 'package:curse_app_1/domain/blocs/login/login_block.dart';
+import 'package:curse_app_1/domain/blocs/login/login_event.dart';
+import 'package:curse_app_1/domain/blocs/login/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
