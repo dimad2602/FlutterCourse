@@ -1,44 +1,67 @@
-import 'package:curse_app_1/domain/blocs/list_search/list_search_block.dart';
-import 'package:curse_app_1/domain/blocs/list_search/list_search_event.dart';
-import 'package:curse_app_1/domain/blocs/list_search/list_search_state.dart';
 import "package:curse_app_1/models/item_model/item.dart";
 import "package:flutter/material.dart";
 import "package:flutter_bloc/flutter_bloc.dart";
 
+import "../domain/blocs/list_search2/list_search_bloc.dart";
+
 class ListSearchPage extends StatelessWidget {
-  const ListSearchPage({super.key});
+  final TextEditingController _searchController = TextEditingController();
+  ListSearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<ListSearchBloc, ListSearchState>(
           builder: (context, state) {
-        BlocProvider.of<ListSearchBloc>(context).add(PageOpen());
-        if (state is InitialState) {
-          print("Initial state");
-          //BlocProvider.of<ListSearchBloc>(context).add(PageOpen());
-          return buildInputUI();
-        } else if (state is FailureState) {
-          print("Failure state");
-          return buildFailureUI(context, "List is empty2");
-        } else if (state is CompleteState) {
-          print("Complete state");
-          return buildCompliteUI(context, state.itemList);
-        } else if (state is LoadingState) {
-          print("Complete state");
-          return buildInputUI();
-        } else {
-          print("another state");
-          return const Text("Error load state");
-        }
+        return state.when(
+          initial: () {
+            print("Initial state");
+            BlocProvider.of<ListSearchBloc>(context)
+                .add(const ListSearchEvent.initialize());
+            return CircularProgressIndicatorUI(); //buildInputUI(context);
+          },
+          loading: () {
+            print("Loading state");
+            return CircularProgressIndicatorUI();
+          },
+          searchInput: (String searchString) {
+            print("searchInput state");
+            return CircularProgressIndicatorUI();
+          },
+          list: (List<Item> items) {
+            print("list state");
+            return buildCompliteUI(context, state.Items!, _searchController);
+          },
+          failure: (List<Item> items, String errorText, String? searchString) {
+            print("failure state");
+            return CircularProgressIndicatorUI();
+          },
+        );
       }),
     );
   }
 }
 
-Widget buildInputUI() {
+Widget CircularProgressIndicatorUI() {
   return const Center(
     child: CircularProgressIndicator(),
+  );
+}
+
+Widget buildInputUI(BuildContext context) {
+  return Column(
+    children: [
+      const Center(
+        child: CircularProgressIndicator(),
+      ),
+      ElevatedButton(
+        onPressed: () {
+          BlocProvider.of<ListSearchBloc>(context)
+              .add(const ListSearchEvent.initialize());
+        },
+        child: const Text('Retry'),
+      ),
+    ],
   );
 }
 
@@ -48,28 +71,54 @@ Widget buildFailureUI(BuildContext context, String errorText) {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('Loading failed: $errorText'),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         ElevatedButton(
           onPressed: () {
             //BlocProvider.of<ListSearchBloc>(context).add(ListLoadingRetry());
           },
-          child: Text('Retry'),
+          child: const Text('Retry'),
         ),
       ],
     ),
   );
 }
 
-Widget buildCompliteUI(BuildContext context, List<Item> listItems) {
-  return ListView.builder(
-      itemCount: listItems.length,
-      itemBuilder: (BuildContext context, int index) {
-        return Center(
-          child: Column(
-            children: [
-              Text(listItems[index].name),
-            ],
-          ),
-        );
-      });
+Widget buildCompliteUI(
+  BuildContext context,
+  List<Item> listItems,
+  TextEditingController searchController,
+) {
+  return Column(
+    children: [
+      const SizedBox(height: 15,),
+      TextField(
+        controller: searchController,
+        decoration: const InputDecoration(
+          hintText: 'Search',
+        ),
+      ),
+      const SizedBox(height: 16),
+      ElevatedButton(
+        onPressed: () {
+          final login = searchController.text;
+          BlocProvider.of<ListSearchBloc>(context)
+              .add(ListSearchEvent.sendSearchString(searchString: login));
+        },
+        child: Text('Search'),
+      ),
+      Expanded(
+        child: ListView.builder(
+            itemCount: listItems.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Center(
+                child: Column(
+                  children: [
+                    Text(listItems[index].name),
+                  ],
+                ),
+              );
+            }),
+      ),
+    ],
+  );
 }

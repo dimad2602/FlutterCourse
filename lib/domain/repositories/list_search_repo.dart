@@ -10,7 +10,7 @@ class ListSearchRepository extends IListRepository {
   Future<List<Item>> fetchList() async {
     await Future.delayed(const Duration(seconds: 2));
     Item item1 = const Item(
-        name: 'firs item',
+        name: 'first item',
         description: 'firs item description',
         weght: '300',
         cost: '195');
@@ -33,8 +33,19 @@ class ListSearchRepository extends IListRepository {
   }
 
   @override
-  Future<List<Item>> searchList({required String searchString}) {
-    // TODO: implement searchList
-    throw UnimplementedError();
+  Future<List<Item>> searchList({required String searchString}) async {
+    await Future.delayed(const Duration(seconds: 1));
+
+    List<Item> searchResults = [];
+    final list = await fetchList();
+    final searchLower = searchString.toLowerCase();
+    for (Item item in list) {
+      final itemNameLower = item.name.toLowerCase();
+      if (itemNameLower.contains(searchLower)) {
+        searchResults.add(item);
+      }
+    }
+
+    return searchResults;
   }
 }

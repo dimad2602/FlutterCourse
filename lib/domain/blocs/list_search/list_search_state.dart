@@ -1,25 +1,25 @@
 import '../../../models/item_model/item.dart';
 
-abstract class ListSearchState {}
+abstract class ListSearchStateOld {}
 
-class InitialState extends ListSearchState {}
+class InitialState extends ListSearchStateOld {}
 
-class SearchInputState extends ListSearchState {
+class SearchInputState extends ListSearchStateOld {
   final String searchString;
 
   SearchInputState(this.searchString);
 }
 
-class LoadingState extends ListSearchState {
+class LoadingState extends ListSearchStateOld {
 }
 
-class FailureState extends ListSearchState {
+class FailureState extends ListSearchStateOld {
   final String errorText;
 
   FailureState(this.errorText);
 }
 
-class CompleteState extends ListSearchState {
+class CompleteState extends ListSearchStateOld {
   late List<Item> itemList;
 
   CompleteState(this.itemList);

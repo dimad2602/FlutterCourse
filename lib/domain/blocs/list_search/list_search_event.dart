@@ -1,14 +1,14 @@
-abstract class ListSearchEvent {}
+abstract class ListSearchEventOld {}
 
-class SearchQueryChanged extends ListSearchEvent {
+class SearchQueryChanged extends ListSearchEventOld {
   final String searchString;
 
   SearchQueryChanged(this.searchString);
 }
 
-class PageOpen extends ListSearchEvent {}
+class PageOpen extends ListSearchEventOld {}
 
-class FetchListComplete extends ListSearchEvent{}
+class FetchListComplete extends ListSearchEventOld{}
 
 // class ListLoadingRetry extends ListSearchEvent {
 // }
