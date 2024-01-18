@@ -21,7 +21,6 @@ mixin _$ListSearchEvent {
     required TResult Function() initialize,
     required TResult Function(String searchString) searchStringChanged,
     required TResult Function(String searchString) sendSearchString,
-    required TResult Function(Item item) updateList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +28,6 @@ mixin _$ListSearchEvent {
     TResult? Function()? initialize,
     TResult? Function(String searchString)? searchStringChanged,
     TResult? Function(String searchString)? sendSearchString,
-    TResult? Function(Item item)? updateList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +35,6 @@ mixin _$ListSearchEvent {
     TResult Function()? initialize,
     TResult Function(String searchString)? searchStringChanged,
     TResult Function(String searchString)? sendSearchString,
-    TResult Function(Item item)? updateList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +43,6 @@ mixin _$ListSearchEvent {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchStringChanged value) searchStringChanged,
     required TResult Function(_SendSearchString value) sendSearchString,
-    required TResult Function(_UpdateList value) updateList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +50,6 @@ mixin _$ListSearchEvent {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchStringChanged value)? searchStringChanged,
     TResult? Function(_SendSearchString value)? sendSearchString,
-    TResult? Function(_UpdateList value)? updateList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +57,6 @@ mixin _$ListSearchEvent {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchStringChanged value)? searchStringChanged,
     TResult Function(_SendSearchString value)? sendSearchString,
-    TResult Function(_UpdateList value)? updateList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,7 +121,6 @@ class _$InitializeImpl implements _Initialize {
     required TResult Function() initialize,
     required TResult Function(String searchString) searchStringChanged,
     required TResult Function(String searchString) sendSearchString,
-    required TResult Function(Item item) updateList,
   }) {
     return initialize();
   }
@@ -138,7 +131,6 @@ class _$InitializeImpl implements _Initialize {
     TResult? Function()? initialize,
     TResult? Function(String searchString)? searchStringChanged,
     TResult? Function(String searchString)? sendSearchString,
-    TResult? Function(Item item)? updateList,
   }) {
     return initialize?.call();
   }
@@ -149,7 +141,6 @@ class _$InitializeImpl implements _Initialize {
     TResult Function()? initialize,
     TResult Function(String searchString)? searchStringChanged,
     TResult Function(String searchString)? sendSearchString,
-    TResult Function(Item item)? updateList,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -164,7 +155,6 @@ class _$InitializeImpl implements _Initialize {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchStringChanged value) searchStringChanged,
     required TResult Function(_SendSearchString value) sendSearchString,
-    required TResult Function(_UpdateList value) updateList,
   }) {
     return initialize(this);
   }
@@ -175,7 +165,6 @@ class _$InitializeImpl implements _Initialize {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchStringChanged value)? searchStringChanged,
     TResult? Function(_SendSearchString value)? sendSearchString,
-    TResult? Function(_UpdateList value)? updateList,
   }) {
     return initialize?.call(this);
   }
@@ -186,7 +175,6 @@ class _$InitializeImpl implements _Initialize {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchStringChanged value)? searchStringChanged,
     TResult Function(_SendSearchString value)? sendSearchString,
-    TResult Function(_UpdateList value)? updateList,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -269,7 +257,6 @@ class _$SearchStringChangedImpl implements _SearchStringChanged {
     required TResult Function() initialize,
     required TResult Function(String searchString) searchStringChanged,
     required TResult Function(String searchString) sendSearchString,
-    required TResult Function(Item item) updateList,
   }) {
     return searchStringChanged(searchString);
   }
@@ -280,7 +267,6 @@ class _$SearchStringChangedImpl implements _SearchStringChanged {
     TResult? Function()? initialize,
     TResult? Function(String searchString)? searchStringChanged,
     TResult? Function(String searchString)? sendSearchString,
-    TResult? Function(Item item)? updateList,
   }) {
     return searchStringChanged?.call(searchString);
   }
@@ -291,7 +277,6 @@ class _$SearchStringChangedImpl implements _SearchStringChanged {
     TResult Function()? initialize,
     TResult Function(String searchString)? searchStringChanged,
     TResult Function(String searchString)? sendSearchString,
-    TResult Function(Item item)? updateList,
     required TResult orElse(),
   }) {
     if (searchStringChanged != null) {
@@ -306,7 +291,6 @@ class _$SearchStringChangedImpl implements _SearchStringChanged {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchStringChanged value) searchStringChanged,
     required TResult Function(_SendSearchString value) sendSearchString,
-    required TResult Function(_UpdateList value) updateList,
   }) {
     return searchStringChanged(this);
   }
@@ -317,7 +301,6 @@ class _$SearchStringChangedImpl implements _SearchStringChanged {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchStringChanged value)? searchStringChanged,
     TResult? Function(_SendSearchString value)? sendSearchString,
-    TResult? Function(_UpdateList value)? updateList,
   }) {
     return searchStringChanged?.call(this);
   }
@@ -328,7 +311,6 @@ class _$SearchStringChangedImpl implements _SearchStringChanged {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchStringChanged value)? searchStringChanged,
     TResult Function(_SendSearchString value)? sendSearchString,
-    TResult Function(_UpdateList value)? updateList,
     required TResult orElse(),
   }) {
     if (searchStringChanged != null) {
@@ -418,7 +400,6 @@ class _$SendSearchStringImpl implements _SendSearchString {
     required TResult Function() initialize,
     required TResult Function(String searchString) searchStringChanged,
     required TResult Function(String searchString) sendSearchString,
-    required TResult Function(Item item) updateList,
   }) {
     return sendSearchString(searchString);
   }
@@ -429,7 +410,6 @@ class _$SendSearchStringImpl implements _SendSearchString {
     TResult? Function()? initialize,
     TResult? Function(String searchString)? searchStringChanged,
     TResult? Function(String searchString)? sendSearchString,
-    TResult? Function(Item item)? updateList,
   }) {
     return sendSearchString?.call(searchString);
   }
@@ -440,7 +420,6 @@ class _$SendSearchStringImpl implements _SendSearchString {
     TResult Function()? initialize,
     TResult Function(String searchString)? searchStringChanged,
     TResult Function(String searchString)? sendSearchString,
-    TResult Function(Item item)? updateList,
     required TResult orElse(),
   }) {
     if (sendSearchString != null) {
@@ -455,7 +434,6 @@ class _$SendSearchStringImpl implements _SendSearchString {
     required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchStringChanged value) searchStringChanged,
     required TResult Function(_SendSearchString value) sendSearchString,
-    required TResult Function(_UpdateList value) updateList,
   }) {
     return sendSearchString(this);
   }
@@ -466,7 +444,6 @@ class _$SendSearchStringImpl implements _SendSearchString {
     TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchStringChanged value)? searchStringChanged,
     TResult? Function(_SendSearchString value)? sendSearchString,
-    TResult? Function(_UpdateList value)? updateList,
   }) {
     return sendSearchString?.call(this);
   }
@@ -477,7 +454,6 @@ class _$SendSearchStringImpl implements _SendSearchString {
     TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchStringChanged value)? searchStringChanged,
     TResult Function(_SendSearchString value)? sendSearchString,
-    TResult Function(_UpdateList value)? updateList,
     required TResult orElse(),
   }) {
     if (sendSearchString != null) {
@@ -495,161 +471,6 @@ abstract class _SendSearchString implements ListSearchEvent {
   String get searchString;
   @JsonKey(ignore: true)
   _$$SendSearchStringImplCopyWith<_$SendSearchStringImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UpdateListImplCopyWith<$Res> {
-  factory _$$UpdateListImplCopyWith(
-          _$UpdateListImpl value, $Res Function(_$UpdateListImpl) then) =
-      __$$UpdateListImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Item item});
-
-  $ItemCopyWith<$Res> get item;
-}
-
-/// @nodoc
-class __$$UpdateListImplCopyWithImpl<$Res>
-    extends _$ListSearchEventCopyWithImpl<$Res, _$UpdateListImpl>
-    implements _$$UpdateListImplCopyWith<$Res> {
-  __$$UpdateListImplCopyWithImpl(
-      _$UpdateListImpl _value, $Res Function(_$UpdateListImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? item = null,
-  }) {
-    return _then(_$UpdateListImpl(
-      item: null == item
-          ? _value.item
-          : item // ignore: cast_nullable_to_non_nullable
-              as Item,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ItemCopyWith<$Res> get item {
-    return $ItemCopyWith<$Res>(_value.item, (value) {
-      return _then(_value.copyWith(item: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UpdateListImpl implements _UpdateList {
-  const _$UpdateListImpl({required this.item});
-
-  @override
-  final Item item;
-
-  @override
-  String toString() {
-    return 'ListSearchEvent.updateList(item: $item)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateListImpl &&
-            (identical(other.item, item) || other.item == item));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, item);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateListImplCopyWith<_$UpdateListImpl> get copyWith =>
-      __$$UpdateListImplCopyWithImpl<_$UpdateListImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
-    required TResult Function(String searchString) searchStringChanged,
-    required TResult Function(String searchString) sendSearchString,
-    required TResult Function(Item item) updateList,
-  }) {
-    return updateList(item);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initialize,
-    TResult? Function(String searchString)? searchStringChanged,
-    TResult? Function(String searchString)? sendSearchString,
-    TResult? Function(Item item)? updateList,
-  }) {
-    return updateList?.call(item);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
-    TResult Function(String searchString)? searchStringChanged,
-    TResult Function(String searchString)? sendSearchString,
-    TResult Function(Item item)? updateList,
-    required TResult orElse(),
-  }) {
-    if (updateList != null) {
-      return updateList(item);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
-    required TResult Function(_SearchStringChanged value) searchStringChanged,
-    required TResult Function(_SendSearchString value) sendSearchString,
-    required TResult Function(_UpdateList value) updateList,
-  }) {
-    return updateList(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initialize value)? initialize,
-    TResult? Function(_SearchStringChanged value)? searchStringChanged,
-    TResult? Function(_SendSearchString value)? sendSearchString,
-    TResult? Function(_UpdateList value)? updateList,
-  }) {
-    return updateList?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
-    TResult Function(_SearchStringChanged value)? searchStringChanged,
-    TResult Function(_SendSearchString value)? sendSearchString,
-    TResult Function(_UpdateList value)? updateList,
-    required TResult orElse(),
-  }) {
-    if (updateList != null) {
-      return updateList(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UpdateList implements ListSearchEvent {
-  const factory _UpdateList({required final Item item}) = _$UpdateListImpl;
-
-  Item get item;
-  @JsonKey(ignore: true)
-  _$$UpdateListImplCopyWith<_$UpdateListImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

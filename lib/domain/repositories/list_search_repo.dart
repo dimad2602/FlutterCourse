@@ -5,7 +5,7 @@ abstract class IListRepository {
   Future<List<Item>> searchList({required String searchString});
 }
 
-class ListSearchRepository extends IListRepository {
+class ListSearchRepository implements IListRepository {
   @override
   Future<List<Item>> fetchList() async {
     await Future.delayed(const Duration(seconds: 2));

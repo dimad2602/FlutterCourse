@@ -11,8 +11,4 @@ class ListSearchEvent with _$ListSearchEvent {
   const factory ListSearchEvent.sendSearchString({ //example - search button
     required String searchString,
   }) = _SendSearchString;
-
-  const factory ListSearchEvent.updateList({
-    required Item item,
-  }) = _UpdateList;
 }

@@ -11,20 +11,20 @@ part 'list_search_state.dart';
 part 'list_search_bloc.freezed.dart';
 
 class ListSearchBloc extends Bloc<ListSearchEvent, ListSearchState> {
-  final ListSearchRepository _repository;
+  final IListRepository _repository;
   ListSearchBloc(this._repository) : super(const ListSearchState.initial()) {
     on<ListSearchEvent>((event, emit) async {
       await event.map(
-          initialize: (value) => _initialize(value, emit),
-          searchStringChanged: (value) => _searchStringChanged(value, emit),
-          sendSearchString: (value) => _sendSearchString(value, emit),
-          updateList: (_) => _updateList(emit));
+        initialize: (value) => _initialize(value, emit),
+        searchStringChanged: (value) => _searchStringChanged(value, emit),
+        sendSearchString: (value) => _sendSearchString(value, emit),
+      );
     });
   }
   FutureOr<void> _initialize(
       _Initialize value, Emitter<ListSearchState> emit) async {
     print("_initialize");
-    emit(ListSearchState.loading());
+    emit(const ListSearchState.loading());
     final items = await _repository.fetchList();
     emit(ListSearchState.list(items: items));
   }
@@ -49,15 +49,6 @@ class ListSearchBloc extends Bloc<ListSearchEvent, ListSearchState> {
         errorText: 'Search failed: $error',
         //searchString: value.searchString,
       ));
-    }
-  }
-
-  FutureOr<void> _updateList(Emitter<ListSearchState> emit) {
-    print("_updateList");
-    final items = state.Items;
-
-    if (items != null) {
-      emit(ListSearchState.list(items: items));
     }
   }
 }
