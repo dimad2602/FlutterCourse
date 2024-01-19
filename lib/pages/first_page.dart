@@ -51,7 +51,7 @@ class FirstPage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-             ElevatedButton(
+            ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff6750a4),
               ),
@@ -60,6 +60,18 @@ class FirstPage extends StatelessWidget {
               },
               child: const BigText(
                 text: "ListWithOutFreezedPage",
+                color: Colors.white,
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/MultiPageListPage');
+              },
+              child: const BigText(
+                text: "MultiPageListPage",
                 color: Colors.white,
               ),
             ),

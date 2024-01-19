@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Item {
   String get name => throw _privateConstructorUsedError;
-  String get weght => throw _privateConstructorUsedError;
+  String get weight => throw _privateConstructorUsedError;
   String get cost => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
@@ -30,7 +30,7 @@ abstract class $ItemCopyWith<$Res> {
   factory $ItemCopyWith(Item value, $Res Function(Item) then) =
       _$ItemCopyWithImpl<$Res, Item>;
   @useResult
-  $Res call({String name, String weght, String cost, String description});
+  $Res call({String name, String weight, String cost, String description});
 }
 
 /// @nodoc
@@ -47,7 +47,7 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
   @override
   $Res call({
     Object? name = null,
-    Object? weght = null,
+    Object? weight = null,
     Object? cost = null,
     Object? description = null,
   }) {
@@ -56,9 +56,9 @@ class _$ItemCopyWithImpl<$Res, $Val extends Item>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      weght: null == weght
-          ? _value.weght
-          : weght // ignore: cast_nullable_to_non_nullable
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
               as String,
       cost: null == cost
           ? _value.cost
@@ -79,7 +79,7 @@ abstract class _$$ItemImplCopyWith<$Res> implements $ItemCopyWith<$Res> {
       __$$ItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String weght, String cost, String description});
+  $Res call({String name, String weight, String cost, String description});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$ItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? weght = null,
+    Object? weight = null,
     Object? cost = null,
     Object? description = null,
   }) {
@@ -102,9 +102,9 @@ class __$$ItemImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      weght: null == weght
-          ? _value.weght
-          : weght // ignore: cast_nullable_to_non_nullable
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
               as String,
       cost: null == cost
           ? _value.cost
@@ -123,7 +123,7 @@ class __$$ItemImplCopyWithImpl<$Res>
 class _$ItemImpl extends _Item {
   const _$ItemImpl(
       {required this.name,
-      required this.weght,
+      required this.weight,
       required this.cost,
       required this.description})
       : super._();
@@ -131,7 +131,7 @@ class _$ItemImpl extends _Item {
   @override
   final String name;
   @override
-  final String weght;
+  final String weight;
   @override
   final String cost;
   @override
@@ -139,7 +139,7 @@ class _$ItemImpl extends _Item {
 
   @override
   String toString() {
-    return 'Item(name: $name, weght: $weght, cost: $cost, description: $description)';
+    return 'Item(name: $name, weight: $weight, cost: $cost, description: $description)';
   }
 
   @override
@@ -148,14 +148,14 @@ class _$ItemImpl extends _Item {
         (other.runtimeType == runtimeType &&
             other is _$ItemImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.weght, weght) || other.weght == weght) &&
+            (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.cost, cost) || other.cost == cost) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, weght, cost, description);
+  int get hashCode => Object.hash(runtimeType, name, weight, cost, description);
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +167,7 @@ class _$ItemImpl extends _Item {
 abstract class _Item extends Item {
   const factory _Item(
       {required final String name,
-      required final String weght,
+      required final String weight,
       required final String cost,
       required final String description}) = _$ItemImpl;
   const _Item._() : super._();
@@ -175,7 +175,7 @@ abstract class _Item extends Item {
   @override
   String get name;
   @override
-  String get weght;
+  String get weight;
   @override
   String get cost;
   @override

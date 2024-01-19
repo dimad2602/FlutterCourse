@@ -12,17 +12,17 @@ class ListSearchRepository implements IListRepository {
     Item item1 = const Item(
         name: 'first item',
         description: 'firs item description',
-        weght: '300',
+        weight: '300',
         cost: '195');
     Item item2 = const Item(
         name: 'second item',
         description: 'second item description',
-        weght: '100',
+        weight: '100',
         cost: '99');
     Item item3 = const Item(
         name: 'third item',
         description: 'third item description',
-        weght: '450',
+        weight: '450',
         cost: '345');
 
     List<Item> list = [];

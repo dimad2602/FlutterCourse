@@ -8,7 +8,7 @@ class Item with _$Item {
 
   const factory Item(
       {required String name,
-      required String weght,
+      required String weight,
       required String cost,
       required String description}) = _Item;
 }
