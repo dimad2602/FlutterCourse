@@ -12,6 +12,7 @@ import 'pages/first_page.dart';
 import 'pages/list_without_freezed.dart';
 import 'pages/login_page.dart';
 import 'pages/multi_page_list_page.dart';
+import 'pages/pagination_list_page.dart';
 
 final Map<String, Widget Function(BuildContext context)> routes = {
   '/': (BuildContext context) => const FirstPage(),
@@ -25,5 +26,6 @@ final Map<String, Widget Function(BuildContext context)> routes = {
         child: ListSearchPage(),
       ),
   '/ListWithOutFreezedPage': (BuildContext context) => ListWithOutFreezedPage(),
-  '/MultiPageListPage': (BuildContext context) => MultiPageListPage(),
+  '/MultiPageListPage': (BuildContext context) => const MultiPageListPage(),
+  '/PaginationListPage': (BuildContext context) => const PaginationListPage(),
 };

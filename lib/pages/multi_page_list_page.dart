@@ -26,7 +26,7 @@ class MultiPageListPage extends StatelessWidget {
                         itemCount: 5,
                       ),
                     );
-                return CircularProgressIndicatorUI();
+                return circularProgressIndicatorUI();
               },
               list: (List<Item> items, int currentPage, int itemsPerPage) {
                 return buildCompleteUI(
@@ -40,13 +40,13 @@ class MultiPageListPage extends StatelessWidget {
                 List<Item> previousItems,
                 List<Item> currentItems,
               ) {
-                return CircularProgressIndicatorUI();
+                return circularProgressIndicatorUI();
               },
               loading: (List<Item> items) {
-                return CircularProgressIndicatorUI();
+                return circularProgressIndicatorUI();
               },
               failure: (List<Item> items, String errorText) {
-                return CircularProgressIndicatorUI();
+                return circularProgressIndicatorUI();
               },
             );
           },
@@ -56,7 +56,7 @@ class MultiPageListPage extends StatelessWidget {
   }
 }
 
-Widget CircularProgressIndicatorUI() {
+Widget circularProgressIndicatorUI() {
   return const Center(
     child: CircularProgressIndicator(),
   );
@@ -119,9 +119,9 @@ Widget buildCompleteUI(
                               );
                         }
                       : null,
-                  child: Text('Previous Page'),
+                  child: const Text('Previous Page'),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 ElevatedButton(
                   onPressed: () {
                     context.read<MultiPageListBloc>().add(
@@ -131,7 +131,7 @@ Widget buildCompleteUI(
                           ),
                         );
                   },
-                  child: Text('Next Page'),
+                  child: const Text('Next Page'),
                 ),
               ],
             ),

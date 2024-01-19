@@ -1,5 +1,3 @@
-import '../../../models/item_model/item.dart';
-
 abstract class ListEvent {}
 
 class Initialize extends ListEvent {}
