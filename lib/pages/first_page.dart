@@ -32,10 +32,10 @@ class FirstPage extends StatelessWidget {
                 backgroundColor: const Color(0xff6750a4),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed('/LoginPage');
+                Navigator.of(context).pushNamed('/LoginOldPage');
               },
               child: const BigText(
-                text: "LoginPage",
+                text: "LoginOldPage",
                 color: Colors.white,
               ),
             ),
@@ -84,6 +84,18 @@ class FirstPage extends StatelessWidget {
               },
               child: const BigText(
                 text: "PaginationListPage",
+                color: Colors.white,
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/SignInPage');
+              },
+              child: const BigText(
+                text: "LoginPage",
                 color: Colors.white,
               ),
             ),

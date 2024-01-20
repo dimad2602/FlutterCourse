@@ -52,7 +52,7 @@ class _MyTextFieldState extends State<MyTextField> {
           //   borderRadius: BorderRadius.circular(14),
           //   borderSide: const BorderSide(color: Colors.purple),
           // ),
-          fillColor: const Color(0xFFe6e0e9),
+          fillColor: Colors.white,//const Color(0xFFe6e0e9),
           filled: true,
           labelText: widget.labelText,
           helperText: widget.helperText,

@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 
-class LoginPage extends StatelessWidget {
+class LoginPageOld extends StatelessWidget {
   final TextEditingController _loginController = TextEditingController();
 
   @override
@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Login Example'),
       ),
-      body: BlocBuilder<LoginBloc, LoginState>(
+      body: BlocBuilder<LoginBlocOld, LoginStateOld>(
         builder: (context, state) {
           if (state is InitialState) {
             return buildInitialUI(context);
@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
             onPressed: () {
               final login = _loginController.text;
               //BlocProvider.of<LoginBloc>(context).add(LoginChanged(login));
-              BlocProvider.of<LoginBloc>(context).add(Validate(login));
+              BlocProvider.of<LoginBlocOld>(context).add(Validate(login));
             },
             child: Text('Submit'),
           ),
@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
           SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {
-              BlocProvider.of<LoginBloc>(context).add(LoginRetry());
+              BlocProvider.of<LoginBlocOld>(context).add(LoginRetry());
             },
             child: Text('Retry'),
           ),
@@ -92,7 +92,7 @@ class LoginPage extends StatelessWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {
-              BlocProvider.of<LoginBloc>(context).add(LoginRetry());
+              BlocProvider.of<LoginBlocOld>(context).add(LoginRetry());
             },
             child: Text('Retry'),
           ),

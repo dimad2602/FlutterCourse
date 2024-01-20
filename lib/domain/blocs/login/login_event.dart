@@ -1,18 +1,18 @@
-abstract class LoginEvent {}
+abstract class LoginEventOld {}
 
-class LoginChanged extends LoginEvent {
+class LoginChanged extends LoginEventOld {
   final String login;
 
   LoginChanged(this.login);
 }
 
-class LoginRetry extends LoginEvent {
+class LoginRetry extends LoginEventOld {
 }
 
-class Validate extends LoginEvent {
+class Validate extends LoginEventOld {
   final String login;
 
   Validate(this.login);
 }
 
-class SignIn extends LoginEvent {}
+class SignIn extends LoginEventOld {}

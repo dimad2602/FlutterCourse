@@ -4,9 +4,9 @@ import 'login_event.dart';
 import '../../repositories/login_repository.dart';
 import 'login_state.dart';
 
-class LoginBloc extends Bloc<LoginEvent, LoginState> {
+class LoginBlocOld extends Bloc<LoginEventOld, LoginStateOld> {
   final LoginRepository _repository;
-  LoginBloc(this._repository) : super(InitialState()) {
+  LoginBlocOld(this._repository) : super(InitialState()) {
     on<LoginChanged>(
       (event, emit) {
         emit(LoginInputState(event.login));
