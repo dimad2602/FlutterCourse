@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../components/big_text.dart';
+import '../domain/blocs/authentication/authentication_bloc.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -20,11 +21,13 @@ class SignInPage extends StatelessWidget {
         ),
         body: BlocConsumer<SignInBloc, SignInState>(
           listener: (context, state) {
-            state.maybeWhen(failure: (_){
-              ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text('Ошибка: ${state.errorMessage}')));
-            }, orElse: () {});
+            state.maybeWhen(
+                failure: (_) {
+                  ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Ошибка: ${state.errorMessage}')));
+                },
+                orElse: () {});
           },
           builder: (context, state) {
             return BlocBuilder<SignInBloc, SignInState>(
@@ -36,8 +39,11 @@ class SignInPage extends StatelessWidget {
                   return circularProgressIndicatorUI();
                 }, failure: (error) {
                   return buildCompleteUI(context);
-                }, success: () {
+                }, success: (user) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
+                    context
+                    .read<AuthenticationBloc>()
+                    .add(AuthenticationEvent.userLoggedIn(user));
                     Navigator.of(context).pushNamed('/SuccessSignInPage');
                   });
                   return const SizedBox.shrink();

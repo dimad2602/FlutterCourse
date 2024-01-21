@@ -1,6 +1,9 @@
+import 'package:curse_app_1/domain/repositories/sign_in_repo.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'domain/blocs/authentication/authentication_bloc.dart';
 import 'pages/first_page.dart';
 import 'routes.dart';
 
@@ -19,14 +22,17 @@ class MyApp extends StatelessWidget {
       statusBarColor: overlayColor,
     );
     SystemChrome.setSystemUIOverlayStyle(systemBarColors);
-    return MaterialApp(
-      title: 'Flutter Demo',
-      routes: routes,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff007aff)),
-        useMaterial3: true,
+    return BlocProvider(
+      create: (context) => AuthenticationBloc(SignInRepo()),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        routes: routes,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff007aff)),
+          useMaterial3: true,
+        ),
+        //home: const MyHomePage(title: 'Джегло'),
       ),
-      //home: const MyHomePage(title: 'Джегло'),
     );
   }
 }

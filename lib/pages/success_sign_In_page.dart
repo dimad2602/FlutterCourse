@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../domain/blocs/authentication/authentication_bloc.dart';
 
 class SuccessSignInPage extends StatelessWidget {
   const SuccessSignInPage({super.key});
@@ -15,12 +18,19 @@ class SuccessSignInPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                    builder: (context, state) {
+                  return Text(state.user!.email);
+                }),
                 const Text(
                   'SuccessSignIn',
                   style: TextStyle(fontSize: 24),
                 ),
                 FilledButton(
                   onPressed: () {
+                    context
+                        .read<AuthenticationBloc>()
+                        .add(const AuthenticationEvent.userLoggedOut());
                     Navigator.of(context).popUntil((route) => route.isFirst);
                   },
                   style: ElevatedButton.styleFrom(

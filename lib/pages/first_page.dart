@@ -47,7 +47,7 @@ class FirstPage extends StatelessWidget {
                 Navigator.of(context).pushNamed('/ListSearchPage');
               },
               child: const BigText(
-                text: "ListSearchPage",
+                text: "ListSearchPage PR 36",
                 color: Colors.white,
               ),
             ),
@@ -59,7 +59,7 @@ class FirstPage extends StatelessWidget {
                 Navigator.of(context).pushNamed('/ListWithOutFreezedPage');
               },
               child: const BigText(
-                text: "ListWithOutFreezedPage",
+                text: "ListWithOutFreezedPage PR 32-33",
                 color: Colors.white,
               ),
             ),
@@ -71,7 +71,7 @@ class FirstPage extends StatelessWidget {
                 Navigator.of(context).pushNamed('/MultiPageListPage');
               },
               child: const BigText(
-                text: "MultiPageListPage",
+                text: "MultiPageListPage PR 37",
                 color: Colors.white,
               ),
             ),
@@ -83,7 +83,7 @@ class FirstPage extends StatelessWidget {
                 Navigator.of(context).pushNamed('/PaginationListPage');
               },
               child: const BigText(
-                text: "PaginationListPage",
+                text: "PaginationListPage PR 34-35",
                 color: Colors.white,
               ),
             ),
@@ -95,7 +95,7 @@ class FirstPage extends StatelessWidget {
                 Navigator.of(context).pushNamed('/SignInPage');
               },
               child: const BigText(
-                text: "LoginPage",
+                text: "LoginPage PR 38",
                 color: Colors.white,
               ),
             ),

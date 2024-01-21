@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:curse_app_1/domain/repositories/sign_in_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../models/user_model/user_model.dart';
+
 part 'sign_in_event.dart';
 part 'sign_in_state.dart';
 part 'sign_in_bloc.freezed.dart';
@@ -37,9 +39,11 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       emit(const SignInState.loading());
       final result = await _repository.signInWithEmail(
           email: value.email, password: value.password);
-      result
-          ? emit(const SignInState.success())
-          : emit(const SignInState.failure(errorMessage: 'Ошибка сервера'));
+      if (result != null) {
+        emit(SignInState.success(user: result));
+      } else {
+        emit(const SignInState.failure(errorMessage: 'Ошибка сервера'));
+      }
     } catch (e) {
       if (e is ValidationException) {
         emit(SignInState.failure(errorMessage: e.message));
@@ -53,9 +57,11 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     try {
       emit(const SignInState.loading());
       final result = await _repository.signInWithSocialNetwork();
-      result
-          ? emit(const SignInState.success())
-          : emit(const SignInState.failure(errorMessage: ''));
+      if (result != null) {
+        emit(SignInState.success(user: result));
+      } else {
+        emit(const SignInState.failure(errorMessage: ''));
+      }
     } catch (e) {
       emit(SignInState.failure(errorMessage: '$e'));
     }
