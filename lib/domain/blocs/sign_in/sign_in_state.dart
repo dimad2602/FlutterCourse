@@ -6,12 +6,7 @@ class SignInState with _$SignInState {
 
   const factory SignInState.initial() = _Initial;
 
-  // {required String email, required String password}
-  //const factory SignInState.input() = _Input;
-
-  const factory SignInState.loading(
-      //{required String email, required String password}
-      ) = _Loading;
+  const factory SignInState.loading() = _Loading;
 
   const factory SignInState.success() = _Success;
 

@@ -37,7 +37,7 @@ class SignInPage extends StatelessWidget {
                 }, failure: (error) {
                   return buildCompleteUI(context);
                 }, success: () {
-                  WidgetsBinding.instance?.addPostFrameCallback((_) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
                     Navigator.of(context).pushNamed('/SuccessSignInPage');
                   });
                   return const SizedBox.shrink();
@@ -104,12 +104,6 @@ Widget buildCompleteUI(BuildContext context) {
             Icons.discord,
             size: 36,
           )), //Icons.reddit
-      // if (context.watch<SignInBloc>().state
-      //     is FailureState) // проверяем, что текущее состояние - это состояние ошибки
-      // const SnackBar(
-      //   content:
-      //       Text('Ошибка входа!'), // замените этим реальным текстом ошибки
-      // ),
     ],
   );
 }
