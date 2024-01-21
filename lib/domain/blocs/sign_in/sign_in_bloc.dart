@@ -27,26 +27,53 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   FutureOr<void> _signInWithEmail(
       _SignInWithEmail value, Emitter<SignInState> emit) async {
     try {
+      if (!_isValidEmail(value.email)) {
+        emit(const SignInState.failure(errorMessage: 'Invalid email'));
+        throw ValidationException('Invalid email');
+      } else if (!_isValidPassword(value.password)) {
+        emit(const SignInState.failure(errorMessage: 'Invalid password'));
+        throw ValidationException('Invalid password');
+      }
       emit(const SignInState.loading());
       final result = await _repository.signInWithEmail(
           email: value.email, password: value.password);
       result
           ? emit(const SignInState.success())
-          : emit(const SignInState.failure());
+          : emit(const SignInState.failure(errorMessage: 'Ошибка сервера'));
     } catch (e) {
-      emit(const SignInState.failure());
+      if (e is ValidationException) {
+        emit(SignInState.failure(errorMessage: e.message));
+      } else {
+        emit(SignInState.failure(errorMessage: 'Ошибка: $e'));
+      }
     }
   }
 
-  FutureOr<void> _signInWithSocialNetwork(Emitter<SignInState> emit) async{
+  FutureOr<void> _signInWithSocialNetwork(Emitter<SignInState> emit) async {
     try {
       emit(const SignInState.loading());
       final result = await _repository.signInWithSocialNetwork();
       result
           ? emit(const SignInState.success())
-          : emit(const SignInState.failure());
+          : emit(const SignInState.failure(errorMessage: ''));
     } catch (e) {
-      emit(const SignInState.failure());
+      emit(SignInState.failure(errorMessage: '$e'));
     }
   }
+}
+
+class ValidationException implements Exception {
+  final String message;
+
+  ValidationException(this.message);
+}
+
+bool _isValidEmail(String email) {
+  final emailRegex = RegExp(
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+  return emailRegex.hasMatch(email);
+}
+
+bool _isValidPassword(String password) {
+  return password.length >= 6;
 }

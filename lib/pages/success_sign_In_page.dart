@@ -21,8 +21,7 @@ class SuccessSignInPage extends StatelessWidget {
                 ),
                 FilledButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
-                    //context.read<SignInBloc>().add(const SignInEvent.started());
+                    Navigator.of(context).popUntil((route) => route.isFirst);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xff6750a4),

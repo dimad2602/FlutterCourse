@@ -20,10 +20,11 @@ class SignInPage extends StatelessWidget {
         ),
         body: BlocConsumer<SignInBloc, SignInState>(
           listener: (context, state) {
-            if (state == const SignInState.failure()) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(const SnackBar(content: Text('sta')));
-            }
+            state.maybeWhen(failure: (_){
+              ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text('Ошибка: ${state.errorMessage}')));
+            }, orElse: () {});
           },
           builder: (context, state) {
             return BlocBuilder<SignInBloc, SignInState>(
@@ -33,7 +34,7 @@ class SignInPage extends StatelessWidget {
                 }, loading: () //String email, String password
                     {
                   return circularProgressIndicatorUI();
-                }, failure: () {
+                }, failure: (error) {
                   return buildCompleteUI(context);
                 }, success: () {
                   WidgetsBinding.instance?.addPostFrameCallback((_) {
