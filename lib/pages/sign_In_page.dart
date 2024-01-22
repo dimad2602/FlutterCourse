@@ -42,8 +42,8 @@ class SignInPage extends StatelessWidget {
                 }, success: (user) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     context
-                    .read<AuthenticationBloc>()
-                    .add(AuthenticationEvent.userLoggedIn(user));
+                        .read<AuthenticationBloc>()
+                        .add(AuthenticationEvent.userLoggedIn(user));
                     Navigator.of(context).pushNamed('/SuccessSignInPage');
                   });
                   return const SizedBox.shrink();
@@ -66,51 +66,80 @@ Widget circularProgressIndicatorUI() {
 Widget buildCompleteUI(BuildContext context) {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  return Column(
-    children: [
-      const SizedBox(
-        height: 45,
-      ),
-      MyTextField(labelText: 'Email', controller: _emailController),
-      const SizedBox(
-        height: 15,
-      ),
-      MyTextField(
-        labelText: 'password',
-        controller: _passwordController,
-        hiddenText: true,
-      ),
-      const SizedBox(
-        height: 15,
-      ),
-      FilledButton(
-          onPressed: () {
-            context.read<SignInBloc>().add(SignInEvent.signInWithEmail(
-                email: _emailController.text,
-                password: _passwordController.text));
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xff6750a4),
-          ),
-          child: const BigText(
-            text: "Войти",
-            color: Colors.white,
-          )),
-      const SizedBox(
-        height: 15,
-      ),
-      IconButton(
-          color: const Color(0xff6750a4),
-          onPressed: () {
-            context
-                .read<SignInBloc>()
-                .add(const SignInEvent.signInWithSocialNetwork());
-          },
-          icon: const Icon(
-            Icons.discord,
-            size: 36,
-          )), //Icons.reddit
-    ],
+  return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+    builder: (context, state) {
+      return state.when(authenticated: (user) {
+        return Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            BigText(text: "Вы вошли в аккаунт ${user.email}"),
+            const SizedBox(
+              height: 12,
+            ),
+            FilledButton(
+              onPressed: () async {
+                context
+                    .read<AuthenticationBloc>()
+                    .add(const AuthenticationEvent.userLoggedOut());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              child: const Text(
+                'Выйти из аккаунта?',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+          ]),
+        );
+      }, unauthenticated: () {
+        return Column(
+          children: [
+            const SizedBox(
+              height: 45,
+            ),
+            MyTextField(labelText: 'Email', controller: _emailController),
+            const SizedBox(
+              height: 15,
+            ),
+            MyTextField(
+              labelText: 'password',
+              controller: _passwordController,
+              hiddenText: true,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            FilledButton(
+                onPressed: () {
+                  context.read<SignInBloc>().add(SignInEvent.signInWithEmail(
+                      email: _emailController.text,
+                      password: _passwordController.text));
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xff6750a4),
+                ),
+                child: const BigText(
+                  text: "Войти",
+                  color: Colors.white,
+                )),
+            const SizedBox(
+              height: 15,
+            ),
+            IconButton(
+                color: const Color(0xff6750a4),
+                onPressed: () {
+                  context
+                      .read<SignInBloc>()
+                      .add(const SignInEvent.signInWithSocialNetwork());
+                },
+                icon: const Icon(
+                  Icons.discord,
+                  size: 36,
+                )), //Icons.reddit
+          ],
+        );
+      });
+    },
   );
 }
 

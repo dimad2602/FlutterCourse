@@ -1,3 +1,4 @@
+import 'package:curse_app_1/components/big_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,20 +15,37 @@ class SuccessSignInPage extends StatelessWidget {
           return true;
         },
         child: Scaffold(
+          appBar: AppBar(title: const Text('SuccessSignInPage'),),
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                    builder: (context, state) {
-                  return Text(state.user!.email);
-                }),
                 const Text(
-                  'SuccessSignIn',
+                  'Success',
                   style: TextStyle(fontSize: 24),
                 ),
+                const SizedBox(height: 32,),
+                BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                    builder: (context, state) {
+                  return state.when(authenticated: (user) {
+                    return Column(
+                      children: [
+                        BigText(text: user.email),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        BigText(text: user.name),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                      ],
+                    );
+                  }, unauthenticated: () {
+                    return const SizedBox.shrink();
+                  });
+                }),
                 FilledButton(
-                  onPressed: () {
+                  onPressed: () async {
                     context
                         .read<AuthenticationBloc>()
                         .add(const AuthenticationEvent.userLoggedOut());
@@ -37,7 +55,7 @@ class SuccessSignInPage extends StatelessWidget {
                     backgroundColor: const Color(0xff6750a4),
                   ),
                   child: const Text(
-                    'Back',
+                    'Выйти из аккаунта',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),

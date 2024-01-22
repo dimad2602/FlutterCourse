@@ -24,14 +24,11 @@ class AuthenticationBloc
 
   FutureOr<void> _userLoggedIn(
       _UserLoggedIn event, Emitter<AuthenticationState> emit) {
-    //_repository.logIn();
-    print('_userLoggedIn');
     emit(AuthenticationState.authenticated(event.user));
   }
 
   FutureOr<void> _userLoggedOut(
       _UserLoggedOut event, Emitter<AuthenticationState> emit) async {
-    _repository.logOut();
     emit(const AuthenticationState.unauthenticated());
   }
 }
