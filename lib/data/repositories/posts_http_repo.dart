@@ -12,8 +12,6 @@ class PostsHttpRepo implements IPostsRepository {
     try {
       final uri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
       final response = await http.get(uri);
-      final json = jsonDecode(response.body);
-      print("fetchPosts json = $json");
 
       final List<dynamic> jsonList = jsonDecode(response.body);
       final List<PostDto> postDtoList =
