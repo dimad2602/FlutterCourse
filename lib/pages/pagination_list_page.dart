@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../domain/blocs/pagination_list/pagination_list_state.dart';
-import '../domain/repositories/multi_page_list_repo.dart';
+import '../data/repositories/multi_page_list_repo.dart';
 import '../models/item_model/item.dart';
 
 class PaginationListPage extends StatelessWidget {

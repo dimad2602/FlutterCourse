@@ -1,5 +1,5 @@
 import 'package:curse_app_1/domain/blocs/multi_page_list/bloc/multi_page_list_bloc.dart';
-import 'package:curse_app_1/domain/repositories/multi_page_list_repo.dart';
+import 'package:curse_app_1/data/repositories/multi_page_list_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

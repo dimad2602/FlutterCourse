@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'domain/blocs/list_search2/list_search_bloc.dart';
 import 'domain/blocs/login/login_block.dart';
-import 'domain/repositories/list_search_repo.dart';
-import 'domain/repositories/login_repository.dart';
+import 'data/repositories/list_search_repo.dart';
+import 'data/repositories/login_repository.dart';
 import 'pages/first_page.dart';
 import 'pages/list_without_freezed.dart';
+import 'pages/posts_http_page/posts_http_page.dart';
 import 'pages/sign_In_page.dart';
 import 'pages/login_page_old.dart';
 import 'pages/multi_page_list_page.dart';
@@ -31,4 +32,5 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/PaginationListPage': (BuildContext context) => const PaginationListPage(),
   '/SignInPage': (BuildContext context) => const SignInPage(),
   '/SuccessSignInPage': (BuildContext context) => const SuccessSignInPage(),
+  '/HttpPostsPage': (BuildContext context) => const PostsHttpPage(),
 };

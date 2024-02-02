@@ -1,7 +1,7 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../repositories/multi_page_list_repo.dart';
+import '../../../data/repositories/multi_page_list_repo.dart';
 import 'pagination_list_event.dart';
 import 'pagination_list_state.dart';
 

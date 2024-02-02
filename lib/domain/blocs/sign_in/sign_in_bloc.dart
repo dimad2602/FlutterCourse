@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:curse_app_1/domain/repositories/sign_in_repo.dart';
+import 'package:curse_app_1/data/repositories/sign_in_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models/user_model/user_model.dart';
@@ -42,7 +42,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       if (result != null) {
         emit(SignInState.success(user: result));
       } else {
-        emit(const SignInState.failure(errorMessage: 'Ошибка сервера'));
+        emit(const SignInState.failure(errorMessage: 'Ошибка от сервера (не верные данные)'));
       }
     } catch (e) {
       if (e is ValidationException) {

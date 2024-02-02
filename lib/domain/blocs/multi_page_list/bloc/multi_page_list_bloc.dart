@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../models/item_model/item.dart';
-import '../../../repositories/multi_page_list_repo.dart';
+import '../../../../data/repositories/multi_page_list_repo.dart';
 
 part 'multi_page_list_event.dart';
 part 'multi_page_list_state.dart';

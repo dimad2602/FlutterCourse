@@ -1,6 +1,6 @@
 import 'package:curse_app_1/components/my_text_field.dart';
 import 'package:curse_app_1/domain/blocs/sign_in/sign_in_bloc.dart';
-import 'package:curse_app_1/domain/repositories/sign_in_repo.dart';
+import 'package:curse_app_1/data/repositories/sign_in_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

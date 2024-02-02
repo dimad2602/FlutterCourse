@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models/user_model/user_model.dart';
-import '../../repositories/sign_in_repo.dart';
+import '../../../data/repositories/sign_in_repo.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';

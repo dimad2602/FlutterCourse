@@ -4,7 +4,7 @@ import 'package:curse_app_1/domain/blocs/list_search/list_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../domain/repositories/list_search_repo.dart';
+import '../data/repositories/list_search_repo.dart';
 import '../models/item_model/item.dart';
 
 class ListWithOutFreezedPage extends StatelessWidget {

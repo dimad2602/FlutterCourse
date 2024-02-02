@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../models/item_model/item.dart';
-import '../../repositories/list_search_repo.dart';
+import '../../../data/repositories/list_search_repo.dart';
 
 part 'list_search_event.dart';
 part 'list_search_state.dart';

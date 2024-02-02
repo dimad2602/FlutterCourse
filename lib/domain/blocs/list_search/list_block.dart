@@ -1,5 +1,5 @@
 import 'package:curse_app_1/domain/blocs/list_search/list_event.dart';
-import 'package:curse_app_1/domain/repositories/list_search_repo.dart';
+import 'package:curse_app_1/data/repositories/list_search_repo.dart';
 import 'package:curse_app_1/domain/blocs/list_search/list_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

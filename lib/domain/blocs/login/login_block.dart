@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login_event.dart';
-import '../../repositories/login_repository.dart';
+import '../../../data/repositories/login_repository.dart';
 import 'login_state.dart';
 
 class LoginBlocOld extends Bloc<LoginEventOld, LoginStateOld> {
