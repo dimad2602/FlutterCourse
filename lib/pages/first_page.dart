@@ -116,10 +116,10 @@ class FirstPage extends StatelessWidget {
                 backgroundColor: const Color(0xff6750a4),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed('/HttpPostsPage');
+                Navigator.of(context).pushNamed('/PostsPage');
               },
               child: const BigText(
-                text: "HttpPosts PR 42",
+                text: "DioPosts PR 43",
                 color: Colors.white,
               ),
             ),

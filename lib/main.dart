@@ -1,6 +1,4 @@
 import 'package:curse_app_1/data/repositories/sign_in_repo.dart';
-import 'package:curse_app_1/models/person_model/person_auto_model.dart';
-import 'package:curse_app_1/models/person_model/person_model.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
