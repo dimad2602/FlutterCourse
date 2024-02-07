@@ -1,8 +1,6 @@
 import 'package:curse_app_1/data/dtos/post_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../models/post_model/post_model.dart';
-
 part 'posts_response.g.dart';
 part 'posts_response.freezed.dart';
 
