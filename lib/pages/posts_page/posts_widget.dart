@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/post_model/post_model.dart';
 
 class PostsWidget extends StatelessWidget {
-  final List<Post> postsList;
+  final List<PostModel> postsList;
   const PostsWidget({super.key, required this.postsList});
 
   @override

@@ -7,7 +7,7 @@ import '../dtos/post_dto.dart';
 
 class PostsDioRepo implements IPostsRepository {
   @override
-  Future<List<Post>> fetchPosts() async {
+  Future<List<PostModel>> fetchPosts() async {
     final dio = Dio(
       BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com'),
     );
@@ -17,7 +17,7 @@ class PostsDioRepo implements IPostsRepository {
       final List<dynamic> jsonList = response.data;
       final List<PostDto> postDtoList =
           jsonList.map((json) => PostDto.fromJson(json)).toList();
-      final List<Post> posts =
+      final List<PostModel> posts =
           postDtoList.map((postDto) => postDto.toDomain()).toList();
 
       return posts;

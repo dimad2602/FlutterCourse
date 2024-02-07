@@ -3,11 +3,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'post_model.freezed.dart';
 
 @freezed
-class Post with _$Post {
-  const factory Post({
+class PostModel with _$PostModel {
+  const factory PostModel({
     required int userId,
     required int id,
     required String title,
     required String body,
-  }) = _Post;
+  }) = _PostModel;
 }

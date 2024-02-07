@@ -15,28 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Post {
+mixin _$PostModel {
   int get userId => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
+  $PostModelCopyWith<PostModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostCopyWith<$Res> {
-  factory $PostCopyWith(Post value, $Res Function(Post) then) =
-      _$PostCopyWithImpl<$Res, Post>;
+abstract class $PostModelCopyWith<$Res> {
+  factory $PostModelCopyWith(PostModel value, $Res Function(PostModel) then) =
+      _$PostModelCopyWithImpl<$Res, PostModel>;
   @useResult
   $Res call({int userId, int id, String title, String body});
 }
 
 /// @nodoc
-class _$PostCopyWithImpl<$Res, $Val extends Post>
-    implements $PostCopyWith<$Res> {
-  _$PostCopyWithImpl(this._value, this._then);
+class _$PostModelCopyWithImpl<$Res, $Val extends PostModel>
+    implements $PostModelCopyWith<$Res> {
+  _$PostModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -73,20 +74,22 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 }
 
 /// @nodoc
-abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
-  factory _$$PostImplCopyWith(
-          _$PostImpl value, $Res Function(_$PostImpl) then) =
-      __$$PostImplCopyWithImpl<$Res>;
+abstract class _$$PostModelImplCopyWith<$Res>
+    implements $PostModelCopyWith<$Res> {
+  factory _$$PostModelImplCopyWith(
+          _$PostModelImpl value, $Res Function(_$PostModelImpl) then) =
+      __$$PostModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int userId, int id, String title, String body});
 }
 
 /// @nodoc
-class __$$PostImplCopyWithImpl<$Res>
-    extends _$PostCopyWithImpl<$Res, _$PostImpl>
-    implements _$$PostImplCopyWith<$Res> {
-  __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
+class __$$PostModelImplCopyWithImpl<$Res>
+    extends _$PostModelCopyWithImpl<$Res, _$PostModelImpl>
+    implements _$$PostModelImplCopyWith<$Res> {
+  __$$PostModelImplCopyWithImpl(
+      _$PostModelImpl _value, $Res Function(_$PostModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +100,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? title = null,
     Object? body = null,
   }) {
-    return _then(_$PostImpl(
+    return _then(_$PostModelImpl(
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -120,8 +123,8 @@ class __$$PostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PostImpl implements _Post {
-  const _$PostImpl(
+class _$PostModelImpl implements _PostModel {
+  const _$PostModelImpl(
       {required this.userId,
       required this.id,
       required this.title,
@@ -138,14 +141,14 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(userId: $userId, id: $id, title: $title, body: $body)';
+    return 'PostModel(userId: $userId, id: $id, title: $title, body: $body)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostImpl &&
+            other is _$PostModelImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
@@ -158,16 +161,16 @@ class _$PostImpl implements _Post {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
-      __$$PostImplCopyWithImpl<_$PostImpl>(this, _$identity);
+  _$$PostModelImplCopyWith<_$PostModelImpl> get copyWith =>
+      __$$PostModelImplCopyWithImpl<_$PostModelImpl>(this, _$identity);
 }
 
-abstract class _Post implements Post {
-  const factory _Post(
+abstract class _PostModel implements PostModel {
+  const factory _PostModel(
       {required final int userId,
       required final int id,
       required final String title,
-      required final String body}) = _$PostImpl;
+      required final String body}) = _$PostModelImpl;
 
   @override
   int get userId;
@@ -179,6 +182,6 @@ abstract class _Post implements Post {
   String get body;
   @override
   @JsonKey(ignore: true)
-  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
+  _$$PostModelImplCopyWith<_$PostModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

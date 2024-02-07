@@ -171,7 +171,7 @@ mixin _$PostsState {
     required TResult Function() initial,
     required TResult Function(String errorMessage) error,
     required TResult Function() loading,
-    required TResult Function(List<Post> postList) posts,
+    required TResult Function(List<PostModel> postList) posts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -179,7 +179,7 @@ mixin _$PostsState {
     TResult? Function()? initial,
     TResult? Function(String errorMessage)? error,
     TResult? Function()? loading,
-    TResult? Function(List<Post> postList)? posts,
+    TResult? Function(List<PostModel> postList)? posts,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -187,7 +187,7 @@ mixin _$PostsState {
     TResult Function()? initial,
     TResult Function(String errorMessage)? error,
     TResult Function()? loading,
-    TResult Function(List<Post> postList)? posts,
+    TResult Function(List<PostModel> postList)? posts,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -277,7 +277,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function(String errorMessage) error,
     required TResult Function() loading,
-    required TResult Function(List<Post> postList) posts,
+    required TResult Function(List<PostModel> postList) posts,
   }) {
     return initial();
   }
@@ -288,7 +288,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function(String errorMessage)? error,
     TResult? Function()? loading,
-    TResult? Function(List<Post> postList)? posts,
+    TResult? Function(List<PostModel> postList)? posts,
   }) {
     return initial?.call();
   }
@@ -299,7 +299,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function(String errorMessage)? error,
     TResult Function()? loading,
-    TResult Function(List<Post> postList)? posts,
+    TResult Function(List<PostModel> postList)? posts,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -418,7 +418,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function(String errorMessage) error,
     required TResult Function() loading,
-    required TResult Function(List<Post> postList) posts,
+    required TResult Function(List<PostModel> postList) posts,
   }) {
     return error(errorMessage);
   }
@@ -429,7 +429,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function(String errorMessage)? error,
     TResult? Function()? loading,
-    TResult? Function(List<Post> postList)? posts,
+    TResult? Function(List<PostModel> postList)? posts,
   }) {
     return error?.call(errorMessage);
   }
@@ -440,7 +440,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function(String errorMessage)? error,
     TResult Function()? loading,
-    TResult Function(List<Post> postList)? posts,
+    TResult Function(List<PostModel> postList)? posts,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -537,7 +537,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function(String errorMessage) error,
     required TResult Function() loading,
-    required TResult Function(List<Post> postList) posts,
+    required TResult Function(List<PostModel> postList) posts,
   }) {
     return loading();
   }
@@ -548,7 +548,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function(String errorMessage)? error,
     TResult? Function()? loading,
-    TResult? Function(List<Post> postList)? posts,
+    TResult? Function(List<PostModel> postList)? posts,
   }) {
     return loading?.call();
   }
@@ -559,7 +559,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function(String errorMessage)? error,
     TResult Function()? loading,
-    TResult Function(List<Post> postList)? posts,
+    TResult Function(List<PostModel> postList)? posts,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -616,7 +616,7 @@ abstract class _$$PostsImplCopyWith<$Res> {
           _$PostsImpl value, $Res Function(_$PostsImpl) then) =
       __$$PostsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Post> postList});
+  $Res call({List<PostModel> postList});
 }
 
 /// @nodoc
@@ -636,7 +636,7 @@ class __$$PostsImplCopyWithImpl<$Res>
       postList: null == postList
           ? _value._postList
           : postList // ignore: cast_nullable_to_non_nullable
-              as List<Post>,
+              as List<PostModel>,
     ));
   }
 }
@@ -644,12 +644,12 @@ class __$$PostsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PostsImpl implements _Posts {
-  const _$PostsImpl({required final List<Post> postList})
+  const _$PostsImpl({required final List<PostModel> postList})
       : _postList = postList;
 
-  final List<Post> _postList;
+  final List<PostModel> _postList;
   @override
-  List<Post> get postList {
+  List<PostModel> get postList {
     if (_postList is EqualUnmodifiableListView) return _postList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_postList);
@@ -684,7 +684,7 @@ class _$PostsImpl implements _Posts {
     required TResult Function() initial,
     required TResult Function(String errorMessage) error,
     required TResult Function() loading,
-    required TResult Function(List<Post> postList) posts,
+    required TResult Function(List<PostModel> postList) posts,
   }) {
     return posts(postList);
   }
@@ -695,7 +695,7 @@ class _$PostsImpl implements _Posts {
     TResult? Function()? initial,
     TResult? Function(String errorMessage)? error,
     TResult? Function()? loading,
-    TResult? Function(List<Post> postList)? posts,
+    TResult? Function(List<PostModel> postList)? posts,
   }) {
     return posts?.call(postList);
   }
@@ -706,7 +706,7 @@ class _$PostsImpl implements _Posts {
     TResult Function()? initial,
     TResult Function(String errorMessage)? error,
     TResult Function()? loading,
-    TResult Function(List<Post> postList)? posts,
+    TResult Function(List<PostModel> postList)? posts,
     required TResult orElse(),
   }) {
     if (posts != null) {
@@ -754,9 +754,9 @@ class _$PostsImpl implements _Posts {
 }
 
 abstract class _Posts implements PostsState {
-  const factory _Posts({required final List<Post> postList}) = _$PostsImpl;
+  const factory _Posts({required final List<PostModel> postList}) = _$PostsImpl;
 
-  List<Post> get postList;
+  List<PostModel> get postList;
   @JsonKey(ignore: true)
   _$$PostsImplCopyWith<_$PostsImpl> get copyWith =>
       throw _privateConstructorUsedError;

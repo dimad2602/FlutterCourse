@@ -8,6 +8,6 @@ class PostsState with _$PostsState {
   ) = _Error;
   const factory PostsState.loading() = _Loading;
   const factory PostsState.posts({
-    required List<Post> postList,
+    required List<PostModel> postList,
   }) = _Posts;
 }

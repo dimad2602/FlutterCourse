@@ -15,7 +15,7 @@ class PostDto with _$PostDto {
     required String body,
   }) = _PostDto;
 
-  Post toDomain() => Post(userId: userId, id: id, title: title, body: body);
+  PostModel toDomain() => PostModel(userId: userId, id: id, title: title, body: body);
 
   factory PostDto.fromJson(Map<String, dynamic> json) =>
       _$PostDtoFromJson(json);

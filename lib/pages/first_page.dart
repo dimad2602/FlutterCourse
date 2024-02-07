@@ -119,7 +119,7 @@ class FirstPage extends StatelessWidget {
                 Navigator.of(context).pushNamed('/PostsPage');
               },
               child: const BigText(
-                text: "DioPosts PR 43",
+                text: "ChopperPosts PR 44",
                 color: Colors.white,
               ),
             ),
