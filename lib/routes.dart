@@ -2,6 +2,7 @@ import 'package:curse_app_1/data/storage/secure_storage.dart';
 import 'package:curse_app_1/pages/calculator_page.dart';
 import 'package:curse_app_1/pages/list_search_page.dart';
 import 'package:curse_app_1/pages/save_user_id_page.dart';
+import 'package:curse_app_1/pages/shared_preferences_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,4 +37,5 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/SuccessSignInPage': (BuildContext context) => const SuccessSignInPage(),
   '/PostsPage': (BuildContext context) => const PostsPage(),
   '/SaveUserId': (BuildContext context) => SaveUserIdPage(storage: SecureStorage(),),
+  '/SharedPreferencesPage': (BuildContext context) => const SharedPreferencesPage(),
 };

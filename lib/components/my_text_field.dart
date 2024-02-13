@@ -8,6 +8,7 @@ class MyTextField extends StatefulWidget {
   final bool hiddenText;
   final String obscuringCharacter;
   final Icon? trailingIcon;
+  final TextInputType? keyboardType;
   const MyTextField({
     Key? key,
     required this.labelText,
@@ -17,6 +18,7 @@ class MyTextField extends StatefulWidget {
     this.helperText = "",
     this.obscuringCharacter = "*",
     this.trailingIcon = const Icon(Icons.cancel_outlined),
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -52,11 +54,12 @@ class _MyTextFieldState extends State<MyTextField> {
           //   borderRadius: BorderRadius.circular(14),
           //   borderSide: const BorderSide(color: Colors.purple),
           // ),
-          fillColor: Colors.white,//const Color(0xFFe6e0e9),
+          fillColor: Colors.white, //const Color(0xFFe6e0e9),
           filled: true,
           labelText: widget.labelText,
           helperText: widget.helperText,
         ),
+        keyboardType: widget.keyboardType ?? TextInputType.text,
       ),
     );
   }
