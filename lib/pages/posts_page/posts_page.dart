@@ -1,4 +1,3 @@
-import 'package:curse_app_1/data/repositories/chopper/posts_chopper_repo.dart';
 import 'package:curse_app_1/data/repositories/retrofit/posts_retrofit_repo.dart';
 import 'package:curse_app_1/pages/posts_page/posts_error_widget.dart';
 import 'package:curse_app_1/pages/posts_page/posts_loading_widget.dart';

@@ -1,7 +1,5 @@
 import 'package:curse_app_1/data/dtos/post_dto.dart';
-import 'package:curse_app_1/models/post_model/post_model.dart';
 import 'package:dio/dio.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'posts_retrofit_service.g.dart';
