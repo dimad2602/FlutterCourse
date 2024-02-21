@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'todo.dart';
+part of 'todo_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -16,7 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Todo {
-  String get name => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  bool get isCompleted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
@@ -27,7 +30,7 @@ abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res, Todo>;
   @useResult
-  $Res call({String name});
+  $Res call({int id, String title, String description, bool isCompleted});
 }
 
 /// @nodoc
@@ -43,13 +46,28 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? id = null,
+    Object? title = null,
+    Object? description = null,
+    Object? isCompleted = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -61,7 +79,7 @@ abstract class _$$TodoImplCopyWith<$Res> implements $TodoCopyWith<$Res> {
       __$$TodoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name});
+  $Res call({int id, String title, String description, bool isCompleted});
 }
 
 /// @nodoc
@@ -74,13 +92,28 @@ class __$$TodoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
+    Object? id = null,
+    Object? title = null,
+    Object? description = null,
+    Object? isCompleted = null,
   }) {
     return _then(_$TodoImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -88,14 +121,25 @@ class __$$TodoImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TodoImpl extends _Todo {
-  const _$TodoImpl({required this.name}) : super._();
+  const _$TodoImpl(
+      {required this.id,
+      required this.title,
+      required this.description,
+      required this.isCompleted})
+      : super._();
 
   @override
-  final String name;
+  final int id;
+  @override
+  final String title;
+  @override
+  final String description;
+  @override
+  final bool isCompleted;
 
   @override
   String toString() {
-    return 'Todo(name: $name)';
+    return 'Todo(id: $id, title: $title, description: $description, isCompleted: $isCompleted)';
   }
 
   @override
@@ -103,11 +147,17 @@ class _$TodoImpl extends _Todo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TodoImpl &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, description, isCompleted);
 
   @JsonKey(ignore: true)
   @override
@@ -117,11 +167,21 @@ class _$TodoImpl extends _Todo {
 }
 
 abstract class _Todo extends Todo {
-  const factory _Todo({required final String name}) = _$TodoImpl;
+  const factory _Todo(
+      {required final int id,
+      required final String title,
+      required final String description,
+      required final bool isCompleted}) = _$TodoImpl;
   const _Todo._() : super._();
 
   @override
-  String get name;
+  int get id;
+  @override
+  String get title;
+  @override
+  String get description;
+  @override
+  bool get isCompleted;
   @override
   @JsonKey(ignore: true)
   _$$TodoImplCopyWith<_$TodoImpl> get copyWith =>

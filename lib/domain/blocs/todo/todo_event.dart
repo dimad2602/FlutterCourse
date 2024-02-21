@@ -5,7 +5,7 @@
 //   const factory TodoEvent.started() = _Started;
 // }
 
-import 'package:curse_app_1/models/todo_model/todo.dart';
+import 'package:curse_app_1/models/todo_model/todo_model.dart';
 
 abstract class TodoEvent {
   const TodoEvent();

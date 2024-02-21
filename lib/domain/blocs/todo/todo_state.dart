@@ -5,7 +5,7 @@
 //   const factory TodoState.initial() = _Initial;
 // }
 
-import '../../../models/todo_model/todo.dart';
+import '../../../models/todo_model/todo_model.dart';
 
 
 abstract class TodoState {

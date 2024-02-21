@@ -135,7 +135,7 @@ class FirstPage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-             ElevatedButton(
+            ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xff6750a4),
               ),
@@ -144,6 +144,18 @@ class FirstPage extends StatelessWidget {
               },
               child: const BigText(
                 text: "SharedPreferences PR 47",
+                color: Colors.white,
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff6750a4),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/TodosPage');
+              },
+              child: const BigText(
+                text: "Todos page (DataBase) PR 48",
                 color: Colors.white,
               ),
             ),
