@@ -6,4 +6,5 @@ class TodoTable extends Table {
   TextColumn get title => text().withLength(min: 1, max: 32)();
   TextColumn get description => text().named('description')();
   BoolColumn get isCompleted => boolean().named('is_completed').withDefault(const Constant(false))();
+  TextColumn get comment => text().named('comment')();
 }

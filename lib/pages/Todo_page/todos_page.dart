@@ -1,6 +1,8 @@
 import 'package:curse_app_1/data/repositories/todo_repo/todo_repo.dart';
+import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart';
 import 'package:curse_app_1/domain/blocs/todos/bloc/todos_bloc.dart';
 import 'package:curse_app_1/models/todo_model/todo_model.dart';
+import 'package:curse_app_1/pages/Todo_page/todo_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +16,27 @@ class TodosPage extends StatelessWidget {
           TodosBloc(TodoRetrofitRepo())..add(const TodosEvent.started()),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Todos"),
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+            builder: (context, state) {
+              return state.when(unauthenticated: () {
+                return const Text("Todos");
+              }, authenticated: (user) {
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/SuccessSignInPage');
+                    },
+                    child: Text(user.name));
+              });
+              //return ;
+            },
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/');
+            },
+          ),
         ),
         body: Builder(builder: (context) {
           return Column(
@@ -79,7 +101,8 @@ class TodosPage extends StatelessWidget {
                                           id: 0,
                                           title: title,
                                           description: description,
-                                          isCompleted: false,
+                                          isCompleted: false, 
+                                          comment: 'unknown',
                                         ),
                                       ));
                                   Navigator.of(dialogContext).pop();
@@ -117,6 +140,14 @@ Widget compliteUI(BuildContext context, List<Todo> todosList) {
             ),
           ),
           subtitle: Text(task.description),
+          onTap: () {
+            print("task comment = ${task.comment}");
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => TaskDetailsPage(task: task),
+              ),
+            );
+          },
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [

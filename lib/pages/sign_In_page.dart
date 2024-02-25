@@ -1,4 +1,5 @@
 import 'package:curse_app_1/components/my_text_field.dart';
+import 'package:curse_app_1/data/storage/secure_storage.dart';
 import 'package:curse_app_1/domain/blocs/sign_in/sign_in_bloc.dart';
 import 'package:curse_app_1/data/repositories/sign_in_repo.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class SignInPage extends StatelessWidget {
                     context
                         .read<AuthenticationBloc>()
                         .add(AuthenticationEvent.userLoggedIn(user));
-                    Navigator.of(context).pushNamed('/SuccessSignInPage');
+                    Navigator.of(context).pushNamed('/TodosPage');
                   });
                   return const SizedBox.shrink();
                 });
@@ -66,6 +67,7 @@ Widget circularProgressIndicatorUI() {
 Widget buildCompleteUI(BuildContext context) {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final SecureStorage storage = SecureStorage();
   return BlocBuilder<AuthenticationBloc, AuthenticationState>(
     builder: (context, state) {
       return state.when(authenticated: (user) {
@@ -77,6 +79,7 @@ Widget buildCompleteUI(BuildContext context) {
             ),
             FilledButton(
               onPressed: () async {
+                storage.deleteUserId();
                 context
                     .read<AuthenticationBloc>()
                     .add(const AuthenticationEvent.userLoggedOut());

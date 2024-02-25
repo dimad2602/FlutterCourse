@@ -27,17 +27,25 @@ class TodosBloc extends Bloc<TodosEvent, TodosState> {
   FutureOr<void> _started(_Started value, Emitter<TodosState> emit) async {
     emit(const TodosState.loading(todoList: []));
     final todosList = await _repository.getTodos();
+    print("_started ${todosList}");
     emit(TodosState.initial(todoList: todosList));
   }
 
   FutureOr<void> _add(_Add value, Emitter<TodosState> emit) async {
     emit(const TodosState.loading(todoList: []));
+    print("_add todo ${value.todo}");
     await _repository.addTodo(value.todo);
     final todosList = await _repository.getTodos();
+    print("_add todosList ${todosList}");
     emit(TodosState.initial(todoList: todosList));
   }
 
-  FutureOr<void> _update(_Update value, Emitter<TodosState> emit) async {}
+  FutureOr<void> _update(_Update value, Emitter<TodosState> emit) async {
+    print("_update");
+    await _repository.addComment(value.todo);
+    final todosList = await _repository.getTodos();
+    emit(TodosState.initial(todoList: todosList));
+  }
 
   FutureOr<void> _remove(_Remove value, Emitter<TodosState> emit) async {
     await _repository.removeTodo(value.todo.id);

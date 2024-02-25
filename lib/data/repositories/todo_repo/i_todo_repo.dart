@@ -7,4 +7,5 @@ abstract class ITodoRepository {
   Future<bool> compliteTodo(Todo todo);
   Future<bool> removeTodo(int id);
   Future<bool> removeAllTodos();
+  Future<bool> addComment(Todo todo);
 }

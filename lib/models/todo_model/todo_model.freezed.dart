@@ -20,6 +20,7 @@ mixin _$Todo {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   bool get isCompleted => throw _privateConstructorUsedError;
+  String? get comment => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
@@ -30,7 +31,12 @@ abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
       _$TodoCopyWithImpl<$Res, Todo>;
   @useResult
-  $Res call({int id, String title, String description, bool isCompleted});
+  $Res call(
+      {int id,
+      String title,
+      String description,
+      bool isCompleted,
+      String? comment});
 }
 
 /// @nodoc
@@ -50,6 +56,7 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? title = null,
     Object? description = null,
     Object? isCompleted = null,
+    Object? comment = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -68,6 +75,10 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -79,7 +90,12 @@ abstract class _$$TodoImplCopyWith<$Res> implements $TodoCopyWith<$Res> {
       __$$TodoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, String description, bool isCompleted});
+  $Res call(
+      {int id,
+      String title,
+      String description,
+      bool isCompleted,
+      String? comment});
 }
 
 /// @nodoc
@@ -96,6 +112,7 @@ class __$$TodoImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? isCompleted = null,
+    Object? comment = freezed,
   }) {
     return _then(_$TodoImpl(
       id: null == id
@@ -114,6 +131,10 @@ class __$$TodoImplCopyWithImpl<$Res>
           ? _value.isCompleted
           : isCompleted // ignore: cast_nullable_to_non_nullable
               as bool,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -125,7 +146,8 @@ class _$TodoImpl extends _Todo {
       {required this.id,
       required this.title,
       required this.description,
-      required this.isCompleted})
+      required this.isCompleted,
+      this.comment})
       : super._();
 
   @override
@@ -136,10 +158,12 @@ class _$TodoImpl extends _Todo {
   final String description;
   @override
   final bool isCompleted;
+  @override
+  final String? comment;
 
   @override
   String toString() {
-    return 'Todo(id: $id, title: $title, description: $description, isCompleted: $isCompleted)';
+    return 'Todo(id: $id, title: $title, description: $description, isCompleted: $isCompleted, comment: $comment)';
   }
 
   @override
@@ -152,12 +176,13 @@ class _$TodoImpl extends _Todo {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.isCompleted, isCompleted) ||
-                other.isCompleted == isCompleted));
+                other.isCompleted == isCompleted) &&
+            (identical(other.comment, comment) || other.comment == comment));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, title, description, isCompleted);
+      Object.hash(runtimeType, id, title, description, isCompleted, comment);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +196,8 @@ abstract class _Todo extends Todo {
       {required final int id,
       required final String title,
       required final String description,
-      required final bool isCompleted}) = _$TodoImpl;
+      required final bool isCompleted,
+      final String? comment}) = _$TodoImpl;
   const _Todo._() : super._();
 
   @override
@@ -182,6 +208,8 @@ abstract class _Todo extends Todo {
   String get description;
   @override
   bool get isCompleted;
+  @override
+  String? get comment;
   @override
   @JsonKey(ignore: true)
   _$$TodoImplCopyWith<_$TodoImpl> get copyWith =>

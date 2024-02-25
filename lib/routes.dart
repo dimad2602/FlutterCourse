@@ -1,7 +1,8 @@
 import 'package:curse_app_1/data/storage/secure_storage.dart';
+import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart';
 import 'package:curse_app_1/pages/calculator_page.dart';
 import 'package:curse_app_1/pages/list_search_page.dart';
-import 'package:curse_app_1/pages/posts_page/todos_page.dart';
+import 'package:curse_app_1/pages/Todo_page/todos_page.dart';
 import 'package:curse_app_1/pages/save_user_id_page.dart';
 import 'package:curse_app_1/pages/shared_preferences_page.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,16 @@ import 'pages/pagination_list_page.dart';
 import 'pages/success_sign_in_page.dart';
 
 final Map<String, Widget Function(BuildContext context)> routes = {
-  '/': (BuildContext context) => const FirstPage(),
+  '/': (BuildContext context) =>
+      BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        builder: (context, state) {
+          return state.when(unauthenticated: () {
+            return const SignInPage();
+          }, authenticated: (user) {
+            return const FirstPage();
+          });
+        },
+      ),
   '/CalculatorPage': (BuildContext context) => const CalculatorPage(),
   '/LoginOldPage': (BuildContext context) => BlocProvider(
         create: (context) => LoginBlocOld(LoginRepository()),
@@ -37,7 +47,10 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/SignInPage': (BuildContext context) => const SignInPage(),
   '/SuccessSignInPage': (BuildContext context) => const SuccessSignInPage(),
   '/PostsPage': (BuildContext context) => const PostsPage(),
-  '/SaveUserId': (BuildContext context) => SaveUserIdPage(storage: SecureStorage(),),
-  '/SharedPreferencesPage': (BuildContext context) => const SharedPreferencesPage(),
+  '/SaveUserId': (BuildContext context) => SaveUserIdPage(
+        storage: SecureStorage(),
+      ),
+  '/SharedPreferencesPage': (BuildContext context) =>
+      const SharedPreferencesPage(),
   '/TodosPage': (BuildContext context) => const TodosPage(),
 };

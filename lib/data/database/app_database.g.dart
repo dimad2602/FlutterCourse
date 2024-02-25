@@ -42,8 +42,15 @@ class $TodoTableTable extends TodoTable
       defaultConstraints: GeneratedColumn.constraintIsAlways(
           'CHECK ("is_completed" IN (0, 1))'),
       defaultValue: const Constant(false));
+  static const VerificationMeta _commentMeta =
+      const VerificationMeta('comment');
   @override
-  List<GeneratedColumn> get $columns => [id, title, description, isCompleted];
+  late final GeneratedColumn<String> comment = GeneratedColumn<String>(
+      'comment', aliasedName, false,
+      type: DriftSqlType.string, requiredDuringInsert: true);
+  @override
+  List<GeneratedColumn> get $columns =>
+      [id, title, description, isCompleted, comment];
   @override
   String get aliasedName => _alias ?? actualTableName;
   @override
@@ -77,6 +84,12 @@ class $TodoTableTable extends TodoTable
           isCompleted.isAcceptableOrUnknown(
               data['is_completed']!, _isCompletedMeta));
     }
+    if (data.containsKey('comment')) {
+      context.handle(_commentMeta,
+          comment.isAcceptableOrUnknown(data['comment']!, _commentMeta));
+    } else if (isInserting) {
+      context.missing(_commentMeta);
+    }
     return context;
   }
 
@@ -94,6 +107,8 @@ class $TodoTableTable extends TodoTable
           .read(DriftSqlType.string, data['${effectivePrefix}description'])!,
       isCompleted: attachedDatabase.typeMapping
           .read(DriftSqlType.bool, data['${effectivePrefix}is_completed'])!,
+      comment: attachedDatabase.typeMapping
+          .read(DriftSqlType.string, data['${effectivePrefix}comment'])!,
     );
   }
 
@@ -108,11 +123,13 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
   final String title;
   final String description;
   final bool isCompleted;
+  final String comment;
   const TodoVeiw(
       {required this.id,
       required this.title,
       required this.description,
-      required this.isCompleted});
+      required this.isCompleted,
+      required this.comment});
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -120,6 +137,7 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
     map['title'] = Variable<String>(title);
     map['description'] = Variable<String>(description);
     map['is_completed'] = Variable<bool>(isCompleted);
+    map['comment'] = Variable<String>(comment);
     return map;
   }
 
@@ -129,6 +147,7 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
       title: Value(title),
       description: Value(description),
       isCompleted: Value(isCompleted),
+      comment: Value(comment),
     );
   }
 
@@ -140,6 +159,7 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
       title: serializer.fromJson<String>(json['title']),
       description: serializer.fromJson<String>(json['description']),
       isCompleted: serializer.fromJson<bool>(json['isCompleted']),
+      comment: serializer.fromJson<String>(json['comment']),
     );
   }
   @override
@@ -150,16 +170,22 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
       'title': serializer.toJson<String>(title),
       'description': serializer.toJson<String>(description),
       'isCompleted': serializer.toJson<bool>(isCompleted),
+      'comment': serializer.toJson<String>(comment),
     };
   }
 
   TodoVeiw copyWith(
-          {int? id, String? title, String? description, bool? isCompleted}) =>
+          {int? id,
+          String? title,
+          String? description,
+          bool? isCompleted,
+          String? comment}) =>
       TodoVeiw(
         id: id ?? this.id,
         title: title ?? this.title,
         description: description ?? this.description,
         isCompleted: isCompleted ?? this.isCompleted,
+        comment: comment ?? this.comment,
       );
   @override
   String toString() {
@@ -167,13 +193,14 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
           ..write('id: $id, ')
           ..write('title: $title, ')
           ..write('description: $description, ')
-          ..write('isCompleted: $isCompleted')
+          ..write('isCompleted: $isCompleted, ')
+          ..write('comment: $comment')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode => Object.hash(id, title, description, isCompleted);
+  int get hashCode => Object.hash(id, title, description, isCompleted, comment);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -181,7 +208,8 @@ class TodoVeiw extends DataClass implements Insertable<TodoVeiw> {
           other.id == this.id &&
           other.title == this.title &&
           other.description == this.description &&
-          other.isCompleted == this.isCompleted);
+          other.isCompleted == this.isCompleted &&
+          other.comment == this.comment);
 }
 
 class TodoTableCompanion extends UpdateCompanion<TodoVeiw> {
@@ -189,30 +217,36 @@ class TodoTableCompanion extends UpdateCompanion<TodoVeiw> {
   final Value<String> title;
   final Value<String> description;
   final Value<bool> isCompleted;
+  final Value<String> comment;
   const TodoTableCompanion({
     this.id = const Value.absent(),
     this.title = const Value.absent(),
     this.description = const Value.absent(),
     this.isCompleted = const Value.absent(),
+    this.comment = const Value.absent(),
   });
   TodoTableCompanion.insert({
     this.id = const Value.absent(),
     required String title,
     required String description,
     this.isCompleted = const Value.absent(),
+    required String comment,
   })  : title = Value(title),
-        description = Value(description);
+        description = Value(description),
+        comment = Value(comment);
   static Insertable<TodoVeiw> custom({
     Expression<int>? id,
     Expression<String>? title,
     Expression<String>? description,
     Expression<bool>? isCompleted,
+    Expression<String>? comment,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
       if (title != null) 'title': title,
       if (description != null) 'description': description,
       if (isCompleted != null) 'is_completed': isCompleted,
+      if (comment != null) 'comment': comment,
     });
   }
 
@@ -220,12 +254,14 @@ class TodoTableCompanion extends UpdateCompanion<TodoVeiw> {
       {Value<int>? id,
       Value<String>? title,
       Value<String>? description,
-      Value<bool>? isCompleted}) {
+      Value<bool>? isCompleted,
+      Value<String>? comment}) {
     return TodoTableCompanion(
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
       isCompleted: isCompleted ?? this.isCompleted,
+      comment: comment ?? this.comment,
     );
   }
 
@@ -244,6 +280,9 @@ class TodoTableCompanion extends UpdateCompanion<TodoVeiw> {
     if (isCompleted.present) {
       map['is_completed'] = Variable<bool>(isCompleted.value);
     }
+    if (comment.present) {
+      map['comment'] = Variable<String>(comment.value);
+    }
     return map;
   }
 
@@ -253,7 +292,8 @@ class TodoTableCompanion extends UpdateCompanion<TodoVeiw> {
           ..write('id: $id, ')
           ..write('title: $title, ')
           ..write('description: $description, ')
-          ..write('isCompleted: $isCompleted')
+          ..write('isCompleted: $isCompleted, ')
+          ..write('comment: $comment')
           ..write(')'))
         .toString();
   }

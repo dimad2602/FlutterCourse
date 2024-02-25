@@ -18,27 +18,47 @@ class AppDataBaseSingleton {
   static AppDatabase get instance => _instance;
 }
 
-@DriftDatabase(tables: [TodoTable])
+@DriftDatabase(tables: [TodoTable],)
 class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
+
+  @override
+  MigrationStrategy get migration {
+    return MigrationStrategy(
+      onCreate: (Migrator m) async {
+        await m.createAll();
+      },
+      onUpgrade: (Migrator m, int from, int to) async {
+        if (from < 2) {
+          await m.addColumn(todoTable, todoTable.comment);
+        }
+      },
+    );
+  }
 
   Future<List<TodoVeiw>> getAllTodos() => select(todoTable).get();
 
   Future<int> insertNewTodo(Todo todo) async {
+    print("insertNewTodo ${todo}");
     final companion = TodoTableCompanion.insert(
-        title: todo.title, description: todo.description);
+        title: todo.title,
+        description: todo.description,
+        comment: todo.comment ?? "unknown");
+    print("companion {$companion}");
     return await into(todoTable).insert(companion);
   }
 
-  Future updateTodo(Todo entry) {
+  Future updateTodo(Todo entry) async {
+    print("metod updateTodo in db ${entry.comment}");
     final companion = TodoVeiw(
         id: entry.id,
         title: entry.title,
         description: entry.description,
-        isCompleted: entry.isCompleted);
-    return update(todoTable).replace(companion);
+        isCompleted: entry.isCompleted,
+        comment: entry.comment ?? "unknown");
+    return await update(todoTable).replace(companion);
   }
 
   Future deleteTodo(int id) {

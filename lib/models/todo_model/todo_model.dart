@@ -11,11 +11,14 @@ class Todo with _$Todo {
     required String title,
     required String description,
     required bool isCompleted,
+    String? comment,
   }) = _Todo;
 
   factory Todo.fromDatabase(TodoVeiw dbTable) => Todo(
       id: dbTable.id,
       title: dbTable.title,
       description: dbTable.description,
-      isCompleted: dbTable.isCompleted);
+      isCompleted: dbTable.isCompleted,
+      comment: dbTable.comment,
+      );
 }

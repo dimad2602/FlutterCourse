@@ -20,18 +20,21 @@ mixin _$AuthenticationEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(User user) userLoggedIn,
     required TResult Function() userLoggedOut,
+    required TResult Function() checkPreviousLoginIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(User user)? userLoggedIn,
     TResult? Function()? userLoggedOut,
+    TResult? Function()? checkPreviousLoginIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(User user)? userLoggedIn,
     TResult Function()? userLoggedOut,
+    TResult Function()? checkPreviousLoginIn,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AuthenticationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_UserLoggedIn value) userLoggedIn,
     required TResult Function(_UserLoggedOut value) userLoggedOut,
+    required TResult Function(_CheckPreviousLoginIn value) checkPreviousLoginIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserLoggedIn value)? userLoggedIn,
     TResult? Function(_UserLoggedOut value)? userLoggedOut,
+    TResult? Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserLoggedIn value)? userLoggedIn,
     TResult Function(_UserLoggedOut value)? userLoggedOut,
+    TResult Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +156,7 @@ class _$UserLoggedInImpl implements _UserLoggedIn {
   TResult when<TResult extends Object?>({
     required TResult Function(User user) userLoggedIn,
     required TResult Function() userLoggedOut,
+    required TResult Function() checkPreviousLoginIn,
   }) {
     return userLoggedIn(user);
   }
@@ -159,6 +166,7 @@ class _$UserLoggedInImpl implements _UserLoggedIn {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(User user)? userLoggedIn,
     TResult? Function()? userLoggedOut,
+    TResult? Function()? checkPreviousLoginIn,
   }) {
     return userLoggedIn?.call(user);
   }
@@ -168,6 +176,7 @@ class _$UserLoggedInImpl implements _UserLoggedIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(User user)? userLoggedIn,
     TResult Function()? userLoggedOut,
+    TResult Function()? checkPreviousLoginIn,
     required TResult orElse(),
   }) {
     if (userLoggedIn != null) {
@@ -181,6 +190,7 @@ class _$UserLoggedInImpl implements _UserLoggedIn {
   TResult map<TResult extends Object?>({
     required TResult Function(_UserLoggedIn value) userLoggedIn,
     required TResult Function(_UserLoggedOut value) userLoggedOut,
+    required TResult Function(_CheckPreviousLoginIn value) checkPreviousLoginIn,
   }) {
     return userLoggedIn(this);
   }
@@ -190,6 +200,7 @@ class _$UserLoggedInImpl implements _UserLoggedIn {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserLoggedIn value)? userLoggedIn,
     TResult? Function(_UserLoggedOut value)? userLoggedOut,
+    TResult? Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
   }) {
     return userLoggedIn?.call(this);
   }
@@ -199,6 +210,7 @@ class _$UserLoggedInImpl implements _UserLoggedIn {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserLoggedIn value)? userLoggedIn,
     TResult Function(_UserLoggedOut value)? userLoggedOut,
+    TResult Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
     required TResult orElse(),
   }) {
     if (userLoggedIn != null) {
@@ -257,6 +269,7 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
   TResult when<TResult extends Object?>({
     required TResult Function(User user) userLoggedIn,
     required TResult Function() userLoggedOut,
+    required TResult Function() checkPreviousLoginIn,
   }) {
     return userLoggedOut();
   }
@@ -266,6 +279,7 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(User user)? userLoggedIn,
     TResult? Function()? userLoggedOut,
+    TResult? Function()? checkPreviousLoginIn,
   }) {
     return userLoggedOut?.call();
   }
@@ -275,6 +289,7 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(User user)? userLoggedIn,
     TResult Function()? userLoggedOut,
+    TResult Function()? checkPreviousLoginIn,
     required TResult orElse(),
   }) {
     if (userLoggedOut != null) {
@@ -288,6 +303,7 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
   TResult map<TResult extends Object?>({
     required TResult Function(_UserLoggedIn value) userLoggedIn,
     required TResult Function(_UserLoggedOut value) userLoggedOut,
+    required TResult Function(_CheckPreviousLoginIn value) checkPreviousLoginIn,
   }) {
     return userLoggedOut(this);
   }
@@ -297,6 +313,7 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_UserLoggedIn value)? userLoggedIn,
     TResult? Function(_UserLoggedOut value)? userLoggedOut,
+    TResult? Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
   }) {
     return userLoggedOut?.call(this);
   }
@@ -306,6 +323,7 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_UserLoggedIn value)? userLoggedIn,
     TResult Function(_UserLoggedOut value)? userLoggedOut,
+    TResult Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
     required TResult orElse(),
   }) {
     if (userLoggedOut != null) {
@@ -317,6 +335,115 @@ class _$UserLoggedOutImpl implements _UserLoggedOut {
 
 abstract class _UserLoggedOut implements AuthenticationEvent {
   const factory _UserLoggedOut() = _$UserLoggedOutImpl;
+}
+
+/// @nodoc
+abstract class _$$CheckPreviousLoginInImplCopyWith<$Res> {
+  factory _$$CheckPreviousLoginInImplCopyWith(_$CheckPreviousLoginInImpl value,
+          $Res Function(_$CheckPreviousLoginInImpl) then) =
+      __$$CheckPreviousLoginInImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CheckPreviousLoginInImplCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res, _$CheckPreviousLoginInImpl>
+    implements _$$CheckPreviousLoginInImplCopyWith<$Res> {
+  __$$CheckPreviousLoginInImplCopyWithImpl(_$CheckPreviousLoginInImpl _value,
+      $Res Function(_$CheckPreviousLoginInImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CheckPreviousLoginInImpl implements _CheckPreviousLoginIn {
+  const _$CheckPreviousLoginInImpl();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.checkPreviousLoginIn()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CheckPreviousLoginInImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(User user) userLoggedIn,
+    required TResult Function() userLoggedOut,
+    required TResult Function() checkPreviousLoginIn,
+  }) {
+    return checkPreviousLoginIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(User user)? userLoggedIn,
+    TResult? Function()? userLoggedOut,
+    TResult? Function()? checkPreviousLoginIn,
+  }) {
+    return checkPreviousLoginIn?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(User user)? userLoggedIn,
+    TResult Function()? userLoggedOut,
+    TResult Function()? checkPreviousLoginIn,
+    required TResult orElse(),
+  }) {
+    if (checkPreviousLoginIn != null) {
+      return checkPreviousLoginIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_UserLoggedIn value) userLoggedIn,
+    required TResult Function(_UserLoggedOut value) userLoggedOut,
+    required TResult Function(_CheckPreviousLoginIn value) checkPreviousLoginIn,
+  }) {
+    return checkPreviousLoginIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_UserLoggedIn value)? userLoggedIn,
+    TResult? Function(_UserLoggedOut value)? userLoggedOut,
+    TResult? Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
+  }) {
+    return checkPreviousLoginIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UserLoggedIn value)? userLoggedIn,
+    TResult Function(_UserLoggedOut value)? userLoggedOut,
+    TResult Function(_CheckPreviousLoginIn value)? checkPreviousLoginIn,
+    required TResult orElse(),
+  }) {
+    if (checkPreviousLoginIn != null) {
+      return checkPreviousLoginIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckPreviousLoginIn implements AuthenticationEvent {
+  const factory _CheckPreviousLoginIn() = _$CheckPreviousLoginInImpl;
 }
 
 /// @nodoc

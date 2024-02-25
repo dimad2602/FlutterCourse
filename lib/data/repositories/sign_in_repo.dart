@@ -1,3 +1,7 @@
+import 'dart:math';
+
+import 'package:curse_app_1/data/storage/secure_storage.dart';
+
 import '../../models/user_model/user_model.dart';
 import 'dart:async';
 
@@ -11,6 +15,8 @@ abstract class ISignInRepository {
 }
 
 class SignInRepo implements ISignInRepository {
+  final SecureStorage storage = SecureStorage();
+
   @override
   Future<User?> signInWithEmail({
     required String email,
@@ -18,7 +24,11 @@ class SignInRepo implements ISignInRepository {
   }) async {
     await Future.delayed(const Duration(seconds: 1));
     if (email == 'example@sample.com' && password == 'password') {
-      return User(email: email, name: 'Дмитрий');
+      final user =
+          User(email: email, name: 'Дмитрий', id: Random().nextInt(10));
+      storage.saveUserId(user.id.toString());
+      print(storage.getUserId());
+      return user;
     } else {
       return null;
     }
@@ -27,7 +37,8 @@ class SignInRepo implements ISignInRepository {
   @override
   Future<User?> signInWithSocialNetwork() async {
     await Future.delayed(const Duration(seconds: 2));
-
-    return const User(email: 'social@example.com', name: 'Social User');
+    const user = User(email: 'social@example.com', name: 'Social User', id: 3);
+    storage.saveUserId(user.id.toString());
+    return user;
   }
 }

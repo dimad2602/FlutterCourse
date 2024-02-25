@@ -3,7 +3,6 @@ import 'package:curse_app_1/data/repositories/todo_repo/i_todo_repo.dart';
 import 'package:curse_app_1/models/todo_model/todo_model.dart';
 
 class TodoRetrofitRepo implements ITodoRepository {
-
   @override
   Future<List<Todo>> getTodos() async {
     final List<Todo> todosList = [];
@@ -29,7 +28,8 @@ class TodoRetrofitRepo implements ITodoRepository {
   Future<bool> compliteTodo(Todo todo) async {
     final db = AppDataBaseSingleton.instance;
     try {
-      final newTodo = todo.copyWith(isCompleted: todo.isCompleted?false:true);
+      final newTodo =
+          todo.copyWith(isCompleted: todo.isCompleted ? false : true);
       await db.updateTodo(newTodo);
     } catch (_) {}
     return true;
@@ -49,6 +49,17 @@ class TodoRetrofitRepo implements ITodoRepository {
     final db = AppDataBaseSingleton.instance;
     try {
       await db.deleteAllTodos();
+    } catch (_) {}
+    return true;
+  }
+
+  @override
+  Future<bool> addComment(Todo todo) async {
+    final db = AppDataBaseSingleton.instance;
+    try {
+      final newTodo =
+          todo.copyWith(comment: todo.comment);
+      await db.updateTodo(newTodo);
     } catch (_) {}
     return true;
   }

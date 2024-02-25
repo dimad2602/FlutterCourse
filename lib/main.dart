@@ -23,12 +23,14 @@ class MyApp extends StatelessWidget {
     );
     SystemChrome.setSystemUIOverlayStyle(systemBarColors);
     return BlocProvider(
-      create: (context) => AuthenticationBloc(SignInRepo()),
+      create: (context) => AuthenticationBloc(SignInRepo())
+        ..add(const AuthenticationEvent.checkPreviousLoginIn()),
       child: MaterialApp(
         title: 'Flutter Demo',
         routes: routes,
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff007aff)),
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: const Color(0xff007aff)),
           useMaterial3: true,
         ),
         //home: const MyHomePage(title: 'Джегло'),
