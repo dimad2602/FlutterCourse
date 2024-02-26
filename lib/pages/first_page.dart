@@ -27,79 +27,80 @@ class FirstPage extends StatelessWidget {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/CalculatorPage');
-                },
-                child: const BigText(
-                  text: "Калькулятор",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/LoginOldPage');
-                },
-                child: const BigText(
-                  text: "LoginOldPage",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/ListSearchPage');
-                },
-                child: const BigText(
-                  text: "ListSearchPage PR 36",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/ListWithOutFreezedPage');
-                },
-                child: const BigText(
-                  text: "ListWithOutFreezedPage PR 32-33",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/MultiPageListPage');
-                },
-                child: const BigText(
-                  text: "MultiPageListPage PR 37",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/PaginationListPage');
-                },
-                child: const BigText(
-                  text: "PaginationListPage PR 34-35",
-                  color: Colors.white,
-                ),
-              ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/CalculatorPage');
+              //   },
+              //   child: const BigText(
+              //     text: "Калькулятор",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/LoginOldPage');
+              //   },
+              //   child: const BigText(
+              //     text: "LoginOldPage",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/ListSearchPage');
+              //   },
+              //   child: const BigText(
+              //     text: "ListSearchPage PR 36",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/ListWithOutFreezedPage');
+              //   },
+              //   child: const BigText(
+              //     text: "ListWithOutFreezedPage PR 32-33",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/MultiPageListPage');
+              //   },
+              //   child: const BigText(
+              //     text: "MultiPageListPage PR 37",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/PaginationListPage');
+              //   },
+              //   child: const BigText(
+              //     text: "PaginationListPage PR 34-35",
+              //     color: Colors.white,
+              //   ),
+              // ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff6750a4),
@@ -112,42 +113,42 @@ class FirstPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/PostsPage');
-                },
-                child: const BigText(
-                  text: "RetrofitPosts PR 45",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/SaveUserId');
-                },
-                child: const BigText(
-                  text: "SaveUserId PR 46",
-                  color: Colors.white,
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff6750a4),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/SharedPreferencesPage');
-                },
-                child: const BigText(
-                  text: "SharedPreferences PR 47",
-                  color: Colors.white,
-                ),
-              ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/PostsPage');
+              //   },
+              //   child: const BigText(
+              //     text: "RetrofitPosts PR 45",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/SaveUserId');
+              //   },
+              //   child: const BigText(
+              //     text: "SaveUserId PR 46",
+              //     color: Colors.white,
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   style: ElevatedButton.styleFrom(
+              //     backgroundColor: const Color(0xff6750a4),
+              //   ),
+              //   onPressed: () {
+              //     Navigator.of(context).pushNamed('/SharedPreferencesPage');
+              //   },
+              //   child: const BigText(
+              //     text: "SharedPreferences PR 47",
+              //     color: Colors.white,
+              //   ),
+              // ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff6750a4),

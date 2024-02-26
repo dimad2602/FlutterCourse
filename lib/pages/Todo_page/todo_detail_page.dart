@@ -18,6 +18,12 @@ class TaskDetailsPage extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: const Text('Task Details'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/TodosPage');
+            },
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -38,7 +44,7 @@ class TaskDetailsPage extends StatelessWidget {
                   fontSize: 18.0,
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -78,11 +84,15 @@ class TaskDetailsPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                task.comment??"Не указан",
-                style: const TextStyle(
-                  fontSize: 20.0,
-                ),
+              BlocBuilder<TodosBloc, TodosState>(
+                builder: (context, state) {
+                  return Text(
+                    state.todoList.firstWhere((e) => e.id == task.id, orElse: () => task).comment?? "Не указан",
+                    style: const TextStyle(
+                      fontSize: 20.0,
+                    ),
+                  );
+                },
               ),
             ],
           ),
