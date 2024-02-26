@@ -1,6 +1,6 @@
 import 'package:curse_app_1/data/repositories/todo_repo/todo_repo.dart';
 import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart';
-import 'package:curse_app_1/domain/blocs/todos/bloc/todos_bloc.dart';
+import 'package:curse_app_1/domain/blocs/todos/todos_bloc.dart';
 import 'package:curse_app_1/models/todo_model/todo_model.dart';
 import 'package:curse_app_1/pages/Todo_page/todo_detail_page.dart';
 import 'package:flutter/material.dart';
