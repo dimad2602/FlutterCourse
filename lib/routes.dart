@@ -2,6 +2,7 @@ import 'package:curse_app_1/data/storage/secure_storage.dart';
 import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart';
 import 'package:curse_app_1/pages/calculator_page.dart';
 import 'package:curse_app_1/pages/firs_open_page.dart';
+import 'package:curse_app_1/pages/image_picker_page.dart';
 import 'package:curse_app_1/pages/list_search_page.dart';
 import 'package:curse_app_1/pages/Todo_page/todos_page.dart';
 import 'package:curse_app_1/pages/save_user_id_page.dart';
@@ -54,4 +55,5 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/SharedPreferencesPage': (BuildContext context) =>
       const SharedPreferencesPage(),
   '/TodosPage': (BuildContext context) => const TodosPage(),
+  '/ImagePickerPage': (BuildContext context) => const ImagePickerPage(),
 };

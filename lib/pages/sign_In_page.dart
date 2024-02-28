@@ -45,7 +45,8 @@ class SignInPage extends StatelessWidget {
                     context
                         .read<AuthenticationBloc>()
                         .add(AuthenticationEvent.userLoggedIn(user));
-                    Navigator.of(context).pushNamed('/TodosPage');
+                    //TodosPage
+                    Navigator.of(context).pushNamed('/');
                   });
                   return const SizedBox.shrink();
                 });
