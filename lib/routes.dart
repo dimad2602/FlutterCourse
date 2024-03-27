@@ -6,6 +6,7 @@ import 'package:curse_app_1/pages/image_picker_page.dart';
 import 'package:curse_app_1/pages/list_search_page.dart';
 import 'package:curse_app_1/pages/Todo_page/todos_page.dart';
 import 'package:curse_app_1/pages/location_page.dart';
+import 'package:curse_app_1/pages/platform_calculations_page.dart';
 import 'package:curse_app_1/pages/save_user_id_page.dart';
 import 'package:curse_app_1/pages/shared_preferences_page.dart';
 import 'package:flutter/material.dart';
@@ -58,4 +59,5 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/TodosPage': (BuildContext context) => const TodosPage(),
   '/ImagePickerPage': (BuildContext context) => const ImagePickerPage(),
   '/LocationPage': (BuildContext context) => const LocationPage(),
+  '/PlatformCalculationsPage': (BuildContext context) => const PlatformCalculationsPage(),
 };

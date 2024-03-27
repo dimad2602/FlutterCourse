@@ -161,7 +161,7 @@ class FirstPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-               ElevatedButton(
+              ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff6750a4),
                 ),
@@ -182,6 +182,18 @@ class FirstPage extends StatelessWidget {
                 },
                 child: const BigText(
                   text: "image picker PR 50",
+                  color: Colors.white,
+                ),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xff6750a4),
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/PlatformCalculationsPage');
+                },
+                child: const BigText(
+                  text: "Platform Calculations PR 51",
                   color: Colors.white,
                 ),
               ),
