@@ -1,5 +1,6 @@
 import 'package:curse_app_1/data/storage/secure_storage.dart';
 import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart';
+import 'package:curse_app_1/pages/animated_container_page.dart';
 import 'package:curse_app_1/pages/calculator_page.dart';
 import 'package:curse_app_1/pages/firs_open_page.dart';
 import 'package:curse_app_1/pages/image_picker_page.dart';
@@ -60,4 +61,5 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/ImagePickerPage': (BuildContext context) => const ImagePickerPage(),
   '/LocationPage': (BuildContext context) => const LocationPage(),
   '/PlatformCalculationsPage': (BuildContext context) => const PlatformCalculationsPage(),
+  '/AnimatedContainerPage': (BuildContext context) => const AnimatedContainerPage(),
 };
