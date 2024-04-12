@@ -245,6 +245,18 @@ class FirstPage extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xff6750a4),
+                ),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/LottiePage');
+                },
+                child: const BigText(
+                  text: "LottiePage PR 55",
+                  color: Colors.white,
+                ),
+              ),
             ],
           ),
         ),
