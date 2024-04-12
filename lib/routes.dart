@@ -3,6 +3,8 @@ import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart
 import 'package:curse_app_1/pages/animated_container_page.dart';
 import 'package:curse_app_1/pages/calculator_page.dart';
 import 'package:curse_app_1/pages/firs_open_page.dart';
+import 'package:curse_app_1/pages/hero_pages/first_hero_page.dart';
+import 'package:curse_app_1/pages/hero_pages/second_hero_page.dart';
 import 'package:curse_app_1/pages/image_picker_page.dart';
 import 'package:curse_app_1/pages/list_search_page.dart';
 import 'package:curse_app_1/pages/Todo_page/todos_page.dart';
@@ -60,6 +62,10 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/TodosPage': (BuildContext context) => const TodosPage(),
   '/ImagePickerPage': (BuildContext context) => const ImagePickerPage(),
   '/LocationPage': (BuildContext context) => const LocationPage(),
-  '/PlatformCalculationsPage': (BuildContext context) => const PlatformCalculationsPage(),
-  '/AnimatedContainerPage': (BuildContext context) => const AnimatedContainerPage(),
+  '/PlatformCalculationsPage': (BuildContext context) =>
+      const PlatformCalculationsPage(),
+  '/AnimatedContainerPage': (BuildContext context) =>
+      const AnimatedContainerPage(),
+  '/FirstHeroPage': (BuildContext context) => const FirstHeroPage(),
+  '/SecondHeroPage': (BuildContext context) => const SecondHeroPage(),
 };
