@@ -1,6 +1,7 @@
 import 'package:curse_app_1/data/storage/secure_storage.dart';
 import 'package:curse_app_1/domain/blocs/authentication/authentication_bloc.dart';
 import 'package:curse_app_1/pages/animated_container_page.dart';
+import 'package:curse_app_1/pages/animation_with_intervals.dart';
 import 'package:curse_app_1/pages/calculator_page.dart';
 import 'package:curse_app_1/pages/custom_animation_page.dart';
 import 'package:curse_app_1/pages/firs_open_page.dart';
@@ -70,4 +71,5 @@ final Map<String, Widget Function(BuildContext context)> routes = {
   '/FirstHeroPage': (BuildContext context) => const FirstHeroPage(),
   '/SecondHeroPage': (BuildContext context) => const SecondHeroPage(),
   '/CustomAnimationPage': (BuildContext context) => const CustomAnimationPage(),
+  '/AnimationWithIntervalsPage': (BuildContext context) => const AnimationWithIntervalsPage(),
 };
