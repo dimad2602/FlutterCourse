@@ -24,7 +24,6 @@ class ListSearchState with _$ListSearchState {
         list: (value) => value.items,
         //searchInput: searchInput,
         //loading: loading,
-        failure: (value) => value.items
-    );
+        failure: (value) => value.items);
   }
 }
