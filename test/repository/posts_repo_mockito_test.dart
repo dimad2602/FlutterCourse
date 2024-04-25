@@ -3,9 +3,11 @@ import 'package:curse_app_1/data/repositories/posts_dio_repo.dart';
 import 'package:curse_app_1/data/services/retrofit/posts_retrofit_service.dart';
 import 'package:curse_app_1/models/post_model/post_model.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'posts_repo_mockito_test.mocks.dart';
 
-class MockRestClient extends Mock implements RestClient {}
+@GenerateNiceMocks([MockSpec<RestClient>()])
 
 void main() {
   final postsApi = MockRestClient();
@@ -13,7 +15,7 @@ void main() {
   group("Posts repository", () {
     test("should return List<PostDto>", () async {
       // arrange
-      when(() => postsApi.fetchPosts()).thenAnswer((_) async => [
+      when(postsApi.fetchPosts()).thenAnswer((_) async => [
             const PostDto(
               userId: 1,
               id: 1,
@@ -44,7 +46,7 @@ void main() {
           body: '789',
         ),
       ]);
-      verify(() => postsApi.fetchPosts());
+      verify(postsApi.fetchPosts());
     });
   });
 }
